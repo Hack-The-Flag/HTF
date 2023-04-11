@@ -111,4 +111,7 @@ h1{
       width: 90%;
       padding-bottom: 40%;
     }
+    .nr-hide{
+        display: none;
+    }
   }
