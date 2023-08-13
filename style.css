@@ -1,0 +1,117 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: black;
+}
+h1{
+    color: white;
+    margin-bottom: 15px;
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
+ .decode-text {
+	 width: 100%;
+	 font-size: 30px;
+	 text-align: center;
+}
+ .space {
+	 display: inline-block;
+	 width: 10px;
+}
+.h1{
+    font-size: larger;
+    font-weight: bolder;
+}
+ .text-animation {
+	 display: inline-block;
+	 position: relative;
+	 color: transparent;
+	 text-transform: uppercase;
+}
+ .text-animation:before {
+	 content: "";
+	 color: white;
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 background: white;
+	 width: 0;
+	 height: 1.2em;
+	 -webkit-transform: translate(-50%, -55%);
+	 -ms-transform: translate(-50%, -55%);
+	 transform: translate(-50%, -55%);
+}
+ .text-animation.state-1:before {
+	 width: 1px;
+}
+ .text-animation.state-2:before {
+	 width: 0.9em;
+}
+ .text-animation.state-3 {
+	 color: white;
+}
+ .text-animation.state-3:before {
+	 width: 0;
+}
+ #refresh {
+	 position: absolute;
+	 top: 20px;
+	 left: 20px;
+	 cursor: pointer;
+}
+ div {
+	 font-family: "Share Tech Mono", monospace;
+}
+ body {
+	 height: 100vh;
+	 align-items: center;
+	 display: flex;
+}
+ 
+
+
+.animation-wrapper {
+    width: 35%;
+    padding-bottom: 20%;
+  }
+  
+  .sphere-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 580px;
+    height: 580px;
+    margin: -290px 0 0 -290px;
+  }
+  
+  .sphere path {
+    fill: url(#sphereGradient);
+    backface-visibility: hidden;
+  }
+  
+  @media (min-width: 500px) {
+    .sphere path {
+      stroke-width: .4px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .space {
+      display: block;
+    }
+    .animation-wrapper {
+      width: 90%;
+      padding-bottom: 40%;
+    }
+    .nr-hide{
+        display: none;
+    }
+  }
