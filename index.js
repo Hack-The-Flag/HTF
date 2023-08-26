@@ -24,7 +24,7 @@ $(document).ready(function(){
       classes = child.classList;
 
       // fire the first one at random times
-      var state1Time = Math.round( Math.random() * (2000 - 300) ) + 50;
+      var state1Time = Math.round( Math.random() * (3000 - 500) ) + 50;
       if(classes.contains('text-animation')){ 
           setTimeout(firstStages.bind(null, child), state1Time);
       }
@@ -73,8 +73,6 @@ $(document).ready(function(){
     }
     return array;
   }
-
-
 });
 
 $(document).ready(function(){

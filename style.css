@@ -1,6 +1,12 @@
+@font-face {
+  font-family: 'HackTheFlag';
+  src: url('HackTheFlag-Regular.otf') format('opentype');
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
+    overflow: hidden;
 }
 body{
     display: flex;
@@ -28,8 +34,10 @@ h1{
 	 width: 10px;
 }
 .h1{
-    font-size: larger;
-    font-weight: bolder;
+    font-size: 3em;
+}
+.h2{
+  font-size: 2em;
 }
  .text-animation {
 	 display: inline-block;
@@ -54,7 +62,7 @@ h1{
 	 width: 1px;
 }
  .text-animation.state-2:before {
-	 width: 0.9em;
+	 width: 0.5em;
 }
  .text-animation.state-3 {
 	 color: white;
@@ -69,7 +77,8 @@ h1{
 	 cursor: pointer;
 }
  div {
-	 font-family: "Share Tech Mono", monospace;
+  font-size: 1.1em;
+  font-family: "HackTheFlag", "Share Tech Mono", monospace;
 }
  body {
 	 height: 100vh;
