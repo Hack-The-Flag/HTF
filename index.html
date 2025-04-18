@@ -22,19 +22,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hack The Flag is a cryptography competition where participants solve ciphers and earn points. Join our upcoming Xmas hunt on December 6th, 2024.">
+    <meta name="keywords" content="cryptography, ciphers, competition, hack the flag, CTF, puzzle solving">
+    <meta name="author" content="Hack The Flag">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hacktheflag.net/">
+    <meta property="og:title" content="Hack The Flag - Cryptography Competition">
+    <meta property="og:description" content="Join Hack The Flag, a competition for cipher enthusiasts. Solve cryptography puzzles and earn points in our upcoming Xmas hunt.">
+    <meta property="og:image" content="img/HTF-bold-320-sh-lg.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hacktheflag.net/">
+    <meta property="twitter:title" content="Hack The Flag - Cryptography Competition">
+    <meta property="twitter:description" content="Join Hack The Flag, a competition for cipher enthusiasts. Solve cryptography puzzles and earn points in our upcoming Xmas hunt.">
+    <meta property="twitter:image" content="img/HTF-bold-320-sh-lg.png">
+
+    <link rel="canonical" href="https://hacktheflag.net/">
     <link
       rel="stylesheet"
       href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="img/HTF-bold-320-sh-lg.png">
-    <title>Hack The Flag</title>
+    <title>Hack The Flag - Cryptography Competition | Solve Ciphers & Win</title>
+
+    <!-- SEO Helper Styles -->
+    <style>
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+    </style>
+
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hack The Flag",
+      "url": "https://hacktheflag.net",
+      "logo": "img/HTF-bold-320-sh-lg.png",
+      "description": "Hack The Flag is a competition for anyone who likes to solve ciphers. The competition aims to promote the world of cryptography and encourage people to learn more about it.",
+      "event": {
+        "@type": "Event",
+        "name": "Xmas Hunt 2024",
+        "startDate": "2024-12-06",
+        "description": "Xmas hunt is coming 6th of December 2024!",
+        "url": "https://github.com/Hack-The-Flag/xmas-hunt-2024"
+      }
+    }
+    </script>
 </head>
 <body style="background-color: black;">
   <div data-simplebar></div>
   <div class="dark-content body">
 
-  <div class="decode-text">
+  <h1 class="visually-hidden">Hack The Flag - Cryptography Competition</h1>
+  <div class="decode-text" aria-label="Hack The Flag">
     <div class="text-animation h1">H</div>
     <div class="text-animation h1">a</div>
     <div class="text-animation h1">c</div>
@@ -90,19 +144,22 @@
     <div class="text-animation">▼</div>
 
   </div>
-  
+
   </div>
 
 
   <div class="light-content">
     <div class="wave">
-      <img src="img/wave/Wvl1.png" alt="wave">
-      <img src="img/wave/Wvl2.png" alt="wave">
-      <img src="img/wave/Wvl3.png" alt="wave">
-      <img src="img/wave/Wvl4.png" alt="wave">
+      <img src="img/wave/Wvl1.png" alt="Hack The Flag wave design element 1">
+      <img src="img/wave/Wvl2.png" alt="Hack The Flag wave design element 2">
+      <img src="img/wave/Wvl3.png" alt="Hack The Flag wave design element 3">
+      <img src="img/wave/Wvl4.png" alt="Hack The Flag wave design element 4">
     </div>
     <div class="text-content">
-  <pre style="white-space: pre-wrap;">
+      <section id="about-competition">
+        <h2 class="visually-hidden">About Hack The Flag Competition</h2>
+        <div class="pgp-content">
+          <pre style="white-space: pre-wrap;">
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
@@ -132,7 +189,17 @@ OdBVZAA+iaTzwEnavzzyW5nb/delI33nqlYvmQHlM92JOYac/NzKC7pkEm9H6gSu
 bkrGtYih
 =URUB
 -----END PGP SIGNATURE-----
-  </pre>
+          </pre>
+        </div>
+
+        <!-- SEO-friendly version of the content -->
+        <div class="seo-content visually-hidden">
+          <p>Hack the Flag is a competition for anyone who likes to solve ciphers. The competition aims to promote the world of cryptography and encourage people to learn more about it.</p>
+          <p>The competition will test your skills in solving ciphers and how quickly you can do it. It will start on November 1st, 2023 at 17:00 (UTC+1), and will run for three weeks.</p>
+          <p>Your goal is to solve as many ciphers as possible and earn as many points as you can. The output of each cipher will be a flag, which you will submit to our website. The flag will look like this: &lt;HTF-this_is_flag/&gt;</p>
+          <p>If you would like to verify our messages, you can find the key at <a href="pgp.html">hacktheflag.net/pgp</a>.</p>
+        </div>
+      </section>
     </div>
 
   </div>
