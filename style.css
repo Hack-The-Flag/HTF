@@ -3,10 +3,24 @@
   src: url('HackTheFlag-Regular.otf') format('opentype');
 }
 
+/* Dark mode (default) */
+:root {
+    --bs-body-bg: #121212;
+    --bs-body-color-rgb: 224, 224, 224;
+    --bs-body-color: #e0e0e0;
+    --bs-primary: #79282c;
+    --bs-link-color: #dc3545;
+    --bs-link-hover-color: #79282c;
+    --bs-dark: #1e1e1e;
+    --bs-border-color: #333;
+}
+
 *{
-  font-family: "HackTheFlag", "Share Tech Mono", monospace;
     box-sizing: border-box;
     margin: 0;
+}
+.htf-font{
+    font-family: "HackTheFlag", "Share Tech Mono", monospace;
 }
 .body{
     display: flex;
@@ -181,12 +195,12 @@ h1{
   font-family: 'Share Tech Mono', monospace;
 }
 
-.btn{
-  background-color: #FF966A;
-  padding: 15px;
-  border-radius: 10px;
-  color: #000;
-  text-decoration: none;
-  border: 1px solid #FF966A;
-  box-shadow: 0px 5px 10px px #FFF;
+.btn {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
 }
