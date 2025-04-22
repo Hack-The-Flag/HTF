@@ -204,3 +204,16 @@ h1{
     color: white;
     font-size: 1.2em;
 }
+
+blockquote {
+    border-left: 4px solid var(--bs-primary);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    color: rgba(var(--bs-body-color-rgb), 0.8);
+}
+
+.text-subtle {
+    color: rgba(var(--bs-body-color-rgb), 0.8);
+}
