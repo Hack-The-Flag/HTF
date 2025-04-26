@@ -47,7 +47,7 @@ h1{
 	 display: inline-block;
 	 width: 10px;
 }
-.h1{
+.rolling-title {
   font-family: "HackTheFlag", "Share Tech Mono", monospace;
 
     font-size: 3em;
@@ -55,7 +55,12 @@ h1{
 .h2{
   font-family: "HackTheFlag", "Share Tech Mono", monospace;
 
-  font-size: 2em;
+  font-size: 5em;
+}
+.h3{
+  font-family: "HackTheFlag", "Share Tech Mono", monospace;
+
+  font-size: 4em;
 }
  .text-animation {
 	 display: inline-block;
@@ -94,14 +99,14 @@ h1{
 	 left: 20px;
 	 cursor: pointer;
 }
- 
+
 
 
 .animation-wrapper {
     width: 35%;
     padding-bottom: 20%;
   }
-  
+
   .sphere-animation {
     position: absolute;
     top: 50%;
@@ -110,12 +115,12 @@ h1{
     height: 580px;
     margin: -290px 0 0 -290px;
   }
-  
+
   .sphere path {
     fill: url(#sphereGradient);
     backface-visibility: hidden;
   }
-  
+
   @media (min-width: 500px) {
     .sphere path {
       stroke-width: .4px;
@@ -184,14 +189,11 @@ h1{
 }
 
 .text-content{
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   z-index: 100000;
   font-size: 1em;
   overflow: hidden;
-  font-family: 'Share Tech Mono', monospace;
-}
-.text-content *{
   font-family: 'Share Tech Mono', monospace;
 }
 
@@ -216,4 +218,50 @@ blockquote {
 
 .text-subtle {
     color: rgba(var(--bs-body-color-rgb), 0.8);
+}
+
+/* Styles for alternating content sections */
+.content-section {
+    position: relative;
+    padding: 2rem 0 10rem 0;
+    overflow: hidden;
+}
+
+.content-section .svg-icon {
+    max-width: 300px;
+    height: auto;
+    opacity: 0.8;
+}
+
+.content-section.left-content .svg-icon {
+    float: right;
+    margin-left: 2rem;
+}
+
+.content-section.right-content .svg-icon {
+    float: left;
+    margin-right: 2rem;
+}
+
+.content-section .section-content {
+    padding: 1rem;
+}
+
+.mention {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid var(--bs-primary);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .content-section .svg-icon {
+        display: block;
+        margin: 0 auto 1.5rem auto;
+        float: none;
+    }
+    .text-content {
+        width: 90%;
+    }
 }
