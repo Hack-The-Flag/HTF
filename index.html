@@ -108,7 +108,7 @@
         <img src="img/circle.svg" style="height: 180vh; opacity: 0.08" class="overflow-hidden"/>
     </div>
 
-    <div class="d-flex flex-column justify-content-center flex-md-row w-100 gap-5">
+    <div class="d-flex flex-column justify-content-center flex-md-row w-100 gap-5 prevent-select">
 
         <div class="col-12 col-md-6 col-lg-5 col-xl-3 htf-font">
             <h1 class="visually-hidden">Hack The Flag - Cryptography Competition</h1>
@@ -145,47 +145,37 @@
                 <br/>
                 <br class="nr-hide"/>
 
-                <div class="text-animation">c</div>
-                <div class="text-animation">h</div>
-                <div class="text-animation">e</div>
-                <div class="text-animation">c</div>
-                <div class="text-animation">k</div>
-                <div class="space"></div>
-                <div class="text-animation">o</div>
-                <div class="text-animation">u</div>
-                <div class="text-animation">t</div>
-                <div class="space"></div>
-                <div class="text-animation">m</div>
-                <div class="text-animation">o</div>
-                <div class="text-animation">r</div>
-                <div class="text-animation">e</div>
-
-                <br/>
-                <br class="nr-hide"/>
-                <div class="text-animation">
-                    <a href="#about-competition" class="text-decoration-none text-white">
-                        ▼
-                    </a>
-                </div>
-
             </div>
         </div>
 
         <div class="col-auto d-none d-md-inline-block">
             <div class="h-100 d-flex align-items-center justify-content-center">
-                <div class="vr">
-
-                </div>
+                <div class="h-50 border-start border-2 border-dark"></div>
             </div>
         </div>
 
         <div class="col-2 d-none d-md-flex align-items-center">
             <div style="font-size: 1.3em;opacity:0.8">
                 Cipher-solving competition for puzzle enthusiasts and cryptography fans.<br/><br/>
-                Dive in, <strong>test your skills,</strong> and uncover hidden flags in a race against time!
+                Dive in, <strong>test your skills,</strong> and uncover hidden flags in a race against time! <br/>
+                <a href="https://blog.hacktheflag.net" class="text-white text-decoration-none mention d-inline-block w-100">
+                    <i class="bi bi-arrow-right-square me-3"></i>
+                    Read our blog
+                </a>
             </div>
         </div>
 
+    </div>
+
+    <div class="d-flex justify-content-center flex-column pt-5">
+        <a href="#about-competition" class="d-inline-text text-decoration-none text-white" style="z-index: 2;">
+
+            <div class="align-items-center htf-font h4">check out more</div>
+            <div class="d-flex justify-content-center">
+                ▼
+            </div>
+
+        </a>
     </div>
 
 
@@ -252,7 +242,7 @@ bkrGtYih
 </div>
 
 <!-- Additional Information Section -->
-<div class="light-content py-5">
+<div class="light-content py-5 prevent-select">
     <div class="text-content mb-5">
         <section id="more-about-htf">
             <h2 class="htf-font h2 mb-4 text-center">More About Hack The Flag</h2>
@@ -337,7 +327,9 @@ bkrGtYih
 
                             <!-- Blog Mention -->
                             <div class="mention">
-                                <h4 class="htf-font mb-2">Explore Our Blog</h4>
+                                <a href="https://blog.hacktheflag.net" class="text-decoration-none text-white">
+                                    <h4 class="htf-font mb-2">Explore Our Blog</h4>
+                                </a>
                                 <p>Looking for more content about cryptography, ciphers, and security challenges? Visit our <a href="https://blog.hacktheflag.net" class="text-white"><strong>blog</strong></a> for tutorials, articles, and insights from the Hack The Flag team.</p>
                             </div>
                         </div>
