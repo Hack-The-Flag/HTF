@@ -1,12 +1,4 @@
-<p>
-Hack the Flag is a competition for anyone who likes to solve ciphers. The competition aims to promote the world of cryptography and encourage people to learn more about it.
-</p>
-<p>
-The competition will test your skills in solving ciphers and how quickly you can do it. It will start on November 1st, 2023, and will run for three weeks.
-</p>
-<p>
-Your goal is to solve as many ciphers as possible and earn as many points as you can. The output of each cipher will be a flag, which you will submit to our website. The flag will look like this: &lt;HTF-this_is_flag&#47;&gt;
-</p>
-<p>
+
+Hack The Flag is coming!
+
 If you would like to verify our messages, you can find the key at hacktheflag.net/pgp.
-</p>
