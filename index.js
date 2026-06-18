@@ -1,3 +1,21 @@
+/* ── SSH connect box ──────────────────────────────────────────────────────── */
+
+function copySSH() {
+    const cmd = document.getElementById('ssh-command').textContent;
+    navigator.clipboard.writeText(cmd).then(() => {
+        const btn = document.querySelector('.htf-copy-btn');
+        const icon = document.getElementById('copy-icon');
+        btn.classList.add('copied');
+        icon.className = 'bi bi-clipboard-check';
+        setTimeout(() => {
+            btn.classList.remove('copied');
+            icon.className = 'bi bi-clipboard';
+        }, 1800);
+    });
+}
+
+/* ── Title decode animation ────────────────────────────────────────────────── */
+
 $(document).ready(function(){
 
   /* ------------------------------------------------------------------------ *  

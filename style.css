@@ -271,7 +271,86 @@ blockquote {
 }
 
 .prevent-select {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* ── Tagline ──────────────────────────────────────────────────────────────── */
+
+.htf-tagline {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.85em;
+    letter-spacing: 0.06em;
+    color: #555;
+    margin-top: 14px;
+    text-align: center;
+}
+
+/* ── HTF SSH Connect Box ──────────────────────────────────────────────────── */
+
+.htf-connect {
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 340px;
+}
+
+.htf-connect-label {
+    font-size: 0.65em;
+    letter-spacing: 0.22em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.htf-connect-box {
+    display: flex;
+    align-items: center;
+    background: #0b0b0b;
+    border: 1px solid #79282c;
+    border-radius: 4px;
+    padding: 14px 18px;
+    gap: 14px;
+    box-shadow: 0 0 30px rgba(220, 53, 69, 0.10), inset 0 0 0 1px rgba(220,53,69,0.04);
+    transition: box-shadow 0.2s;
+}
+
+.htf-connect-box:hover {
+    box-shadow: 0 0 40px rgba(220, 53, 69, 0.18), inset 0 0 0 1px rgba(220,53,69,0.06);
+}
+
+.htf-connect-box code {
+    flex: 1;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    color: #e8e8e8;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+
+.htf-copy-btn {
+    background: transparent;
+    border: none;
+    color: #3a3a3a;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+    font-size: 1em;
+    transition: color 0.15s;
+    flex-shrink: 0;
+}
+
+.htf-copy-btn:hover { color: #dc3545; }
+.htf-copy-btn.copied { color: #dc3545; }
+
+.htf-connect-hint {
+    font-size: 0.62em;
+    letter-spacing: 0.06em;
+    color: #333;
+    margin-top: 9px;
+}
+
+@media (max-width: 767px) {
+    .htf-connect { min-width: 0; width: 100%; max-width: 360px; }
 }

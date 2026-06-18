@@ -108,9 +108,10 @@
         <img src="img/circle.svg" style="height: 180vh; opacity: 0.08" class="overflow-hidden"/>
     </div>
 
-    <div class="d-flex flex-column justify-content-center flex-md-row w-100 gap-5 prevent-select">
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center w-100 gap-5 prevent-select">
 
-        <div class="col-12 col-md-6 col-lg-5 col-xl-3 htf-font">
+        <!-- Title -->
+        <div class="col-12 col-md-auto htf-font">
             <h1 class="visually-hidden">Hack The Flag - Cryptography Competition</h1>
             <div class="decode-text" aria-label="Hack The Flag">
                 <div class="text-animation rolling-title">H</div>
@@ -128,24 +129,8 @@
                 <div class="text-animation rolling-title">l</div>
                 <div class="text-animation rolling-title">a</div>
                 <div class="text-animation rolling-title">g</div>
-
-                <br class="nr-hide"/>
-
-                <div class="text-animation">j</div>
-                <div class="text-animation">o</div>
-                <div class="text-animation">i</div>
-                <div class="text-animation">n</div>
-
-                <br class="nr-hide"/>
-
-                <div class="text-animation">
-                    <a href="https://app.hacktheflag.net" class="btn pb-3 px-4">app.hacktheflag.net</a>
-                </div>
-
-                <br/>
-                <br class="nr-hide"/>
-
             </div>
+            <p class="htf-tagline">Solve ciphers.&nbsp; Capture flags.&nbsp; Prove yourself.</p>
         </div>
 
         <div class="col-auto d-none d-md-inline-block">
@@ -154,14 +139,17 @@
             </div>
         </div>
 
-        <div class="col-2 d-none d-md-flex align-items-center">
-            <div style="font-size: 1.3em;opacity:0.8">
-                Cipher-solving competition for puzzle enthusiasts and cryptography fans.<br/><br/>
-                Dive in, <strong>test your skills,</strong> and uncover hidden flags in a race against time! <br/>
-                <a href="https://blog.hacktheflag.net" class="text-white text-decoration-none mention d-inline-block w-100">
-                    <i class="bi bi-arrow-right-square me-3"></i>
-                    Read our blog
-                </a>
+        <!-- SSH connect box -->
+        <div class="col-12 col-md-auto d-flex align-items-center justify-content-center" style="z-index: 2;">
+            <div class="htf-connect">
+                <div class="htf-connect-label">CONNECT VIA SSH</div>
+                <div class="htf-connect-box">
+                    <code id="ssh-command">ssh app.hacktheflag.net</code>
+                    <button class="htf-copy-btn" onclick="copySSH()" title="Copy">
+                        <i class="bi bi-clipboard" id="copy-icon"></i>
+                    </button>
+                </div>
+                <div class="htf-connect-hint">Works on macOS, Linux &amp; Windows Terminal</div>
             </div>
         </div>
 
@@ -169,15 +157,10 @@
 
     <div class="d-flex justify-content-center flex-column pt-5">
         <a href="#about-competition" class="d-inline-text text-decoration-none text-white" style="z-index: 2;">
-
             <div class="align-items-center htf-font h4">check out more</div>
-            <div class="d-flex justify-content-center">
-                ▼
-            </div>
-
+            <div class="d-flex justify-content-center">▼</div>
         </a>
     </div>
-
 
 </div>
 
@@ -347,27 +330,21 @@ e79PFgXJy9yTiCQZ6YBptV87u0HFPwI=
 
                     <li class="nav-item">
                         <a class="nav-link text-white" href="https://github.com/Hack-The-Flag" target="_blank" rel="noopener noreferrer" title="GitHub">
-
                             <i class="bi bi-github"></i>
-
                             <span class="visually-hidden">GitHub</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link text-white" href="https://www.linkedin.com/company/hack-the-flag/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-
                             <i class="bi bi-linkedin"></i>
-
                             <span class="visually-hidden">LinkedIn</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link text-white" href="https://www.instagram.com/hack.the.flag/" target="_blank" rel="noopener noreferrer" title="Instagram">
-
                             <i class="bi bi-instagram"></i>
-
                             <span class="visually-hidden">Instagram</span>
                         </a>
                     </li>
