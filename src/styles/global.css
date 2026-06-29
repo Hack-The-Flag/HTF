@@ -37,7 +37,7 @@ body {
 ::-webkit-scrollbar-thumb { background: #111; border-radius: 2px; }
 
 /* bracket decoration (non-React elements) */
-.bracket::before { content: '[ '; color: #333; transition: color 0.15s; }
-.bracket::after  { content: ' ]'; color: #333; transition: color 0.15s; }
+.bracket::before { content: '[ '; color: #666; transition: color 0.15s; }
+.bracket::after  { content: ' ]'; color: #666; transition: color 0.15s; }
 .bracket:hover::before, .bracket:hover::after { color: var(--red); }
 .bracket:hover { color: var(--red); }
