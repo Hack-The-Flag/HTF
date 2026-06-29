@@ -16,352 +16,200 @@
 +...|...,'...+  |   /
  \  |  ,     `  |  /
   \ | ,       ` | /
-   \|,         `|/   Xmas hunt is coming 6th of December 2024! https://github.com/Hack-The-Flag/xmas-hunt-2024
+   \|,         `|/
     +___________+
     -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-          content="Hack The Flag is a premier cryptography competition where participants solve ciphers, break codes, and earn points. Join our community of cipher enthusiasts and test your skills in our upcoming Xmas hunt on December 6th, 2024.">
-    <meta name="keywords" content="cryptography, ciphers, competition, hack the flag, CTF, puzzle solving, code breaking, steganography, encryption, decryption, cybersecurity challenges, cryptanalysis, HackTheFlag community, cipher solving, cryptography education, security puzzles, digital forensics">
-    <meta name="author" content="Hack The Flag">
+    <meta name="description" content="Hack The Flag is a cryptography competition where you solve ciphers, break codes, and capture flags. Organized by COD3RS.">
+    <meta name="keywords" content="cryptography, ciphers, CTF, hack the flag, COD3RS, cipher solving, code breaking, steganography, encryption">
+    <meta name="author" content="COD3RS">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hacktheflag.net/">
-    <meta property="og:title" content="Hack The Flag - Cryptography Competition | Cipher Solving Challenges">
-    <meta property="og:description"
-          content="Join Hack The Flag, a premier competition for cipher enthusiasts. Solve cryptography puzzles, break codes, learn encryption techniques, and earn points in our upcoming Xmas hunt. Connect with our community of cryptography and security enthusiasts.">
+    <meta property="og:title" content="Hack The Flag — Cryptography Competition by COD3RS">
+    <meta property="og:description" content="Solve ciphers. Capture flags. Prove yourself. Organized by COD3RS.">
     <meta property="og:image" content="img/HTF-bold-320-sh-lg.png">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hacktheflag.net/">
-    <meta property="twitter:title" content="Hack The Flag - Cryptography Competition | Cipher Solving Challenges">
-    <meta property="twitter:description"
-          content="Join Hack The Flag, a premier competition for cipher enthusiasts. Solve cryptography puzzles, break codes, learn encryption techniques, and earn points in our upcoming Xmas hunt. Connect with our community of cryptography and security enthusiasts.">
+    <meta property="twitter:title" content="Hack The Flag — Cryptography Competition by COD3RS">
+    <meta property="twitter:description" content="Solve ciphers. Capture flags. Prove yourself. Organized by COD3RS.">
     <meta property="twitter:image" content="img/HTF-bold-320-sh-lg.png">
 
     <link rel="canonical" href="https://hacktheflag.net/">
-    <link
-            rel="stylesheet"
-            href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
-    />
-    <link rel="stylesheet" href="style.css"/>
     <link rel="icon" type="image/x-icon" href="img/HTF-bold-320-sh-lg.png">
-    <title>Hack The Flag - Cryptography Competition | Solve Ciphers & Win</title>
+    <title>Hack The Flag — Cryptography Competition by COD3RS</title>
 
-    <!-- SEO Helper Styles -->
-    <style>
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
 
-    <!-- Structured Data / Schema.org -->
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Hack The Flag",
-            "url": "https://hacktheflag.net",
-            "logo": "img/HTF-bold-320-sh-lg.png",
-            "description": "Hack The Flag is a premier competition for anyone who likes to solve ciphers and cryptography challenges. The competition aims to promote the world of cryptography, enhance cybersecurity awareness, and encourage people to learn more about encryption, decryption, and code breaking techniques.",
-            "keywords": ["cryptography", "ciphers", "code breaking", "encryption", "decryption", "cybersecurity", "CTF", "puzzle solving", "steganography", "cryptanalysis", "security challenges"],
-            "sameAs": [
-                "https://github.com/Hack-The-Flag",
-                "https://www.linkedin.com/company/hack-the-flag/",
-                "https://www.instagram.com/hack.the.flag/"
-            ],
-            "event": {
-                "@type": "Event",
-                "name": "Xmas Hunt 2024",
-                "startDate": "2024-12-06",
-                "description": "Xmas hunt is coming 6th of December 2024! Join our annual cryptography challenge with unique ciphers and puzzles.",
-                "url": "https://github.com/Hack-The-Flag/xmas-hunt-2024"
-            },
-            "offers": {
-                "@type": "Offer",
-                "description": "Participate in our cryptography competitions and develop skills in classical and modern encryption methods, steganography, and digital forensics.",
-                "category": "Cybersecurity Education"
-            }
-        }
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Hack The Flag",
+        "organizer": { "@type": "Organization", "name": "COD3RS" },
+        "url": "https://hacktheflag.net",
+        "description": "A cryptography competition where participants solve ciphers, break codes, and capture flags.",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode"
+    }
     </script>
 </head>
-<body style="background-color: black;">
-<div data-simplebar></div>
-<div class="dark-content body">
-    <div style="position:absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; display: flex; justify-content: center; align-items: center;">
-        <img src="img/circle.svg" style="height: 180vh; opacity: 0.08" class="overflow-hidden"/>
+<body>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+<section class="hero" id="top">
+
+    <div class="hero-bg-circle" aria-hidden="true">
+        <img src="img/circle.svg" alt="">
     </div>
 
-    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center w-100 gap-5 prevent-select">
+    <!-- Nav -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="#top" class="nav-logo htf-font" aria-label="Hack The Flag home">HTF</a>
+        <ul class="nav-links">
+            <li><a href="#what" class="bracket-link">What</a></li>
+            <li><a href="#how" class="bracket-link">How it works</a></li>
+            <li><a href="https://blog.hacktheflag.net" class="bracket-link" target="_blank" rel="noopener">Blog</a></li>
+        </ul>
+    </nav>
 
-        <!-- Title -->
-        <div class="col-12 col-md-auto htf-font">
-            <h1 class="visually-hidden">Hack The Flag - Cryptography Competition</h1>
-            <div class="decode-text" aria-label="Hack The Flag">
-                <div class="text-animation rolling-title">H</div>
-                <div class="text-animation rolling-title">a</div>
-                <div class="text-animation rolling-title">c</div>
-                <div class="text-animation rolling-title">k</div>
-                <div class="space"></div>
+    <!-- Title -->
+    <div class="hero-title-wrap" aria-label="Hack The Flag">
+        <div class="decode-text htf-font hero-title" aria-hidden="true">
+            <span class="text-animation">H</span><span class="text-animation">a</span><span class="text-animation">c</span><span class="text-animation">k</span><span class="letter-space"></span><span class="text-animation">t</span><span class="text-animation">h</span><span class="text-animation">e</span><span class="letter-space"></span><span class="text-animation">f</span><span class="text-animation">l</span><span class="text-animation">a</span><span class="text-animation">g</span>
+        </div>
+        <p class="hero-tagline">Solve ciphers.&nbsp; Capture flags.&nbsp; Prove yourself.</p>
+    </div>
 
-                <div class="text-animation rolling-title">t</div>
-                <div class="text-animation rolling-title">h</div>
-                <div class="text-animation rolling-title">e</div>
-                <div class="space"></div>
+    <!-- Stats bar -->
+    <div class="hero-stats" aria-label="Event stats">
+        <div class="stat">
+            <span class="stat-number htf-font">24</span>
+            <span class="stat-label">hours</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true">/</div>
+        <div class="stat">
+            <span class="stat-number htf-font">online</span>
+            <span class="stat-label">event</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true">/</div>
+        <div class="stat">
+            <span class="stat-number htf-font">open</span>
+            <span class="stat-label">to all</span>
+        </div>
+    </div>
 
-                <div class="text-animation rolling-title">f</div>
-                <div class="text-animation rolling-title">l</div>
-                <div class="text-animation rolling-title">a</div>
-                <div class="text-animation rolling-title">g</div>
+    <!-- SSH connect + CTAs -->
+    <div class="hero-ctas">
+        <div class="htf-connect">
+            <div class="htf-connect-label"><span class="htf-prompt">&gt;_</span> connect via ssh</div>
+            <div class="htf-connect-box">
+                <code id="ssh-command">ssh app.hacktheflag.net</code>
+                <button class="htf-copy-btn bracket-btn" onclick="copySSH()" title="Copy to clipboard">
+                    <i class="bi bi-clipboard" id="copy-icon"></i>
+                </button>
             </div>
-            <p class="htf-tagline">Solve ciphers.&nbsp; Capture flags.&nbsp; Prove yourself.</p>
+            <div class="htf-connect-hint">Works on macOS, Linux &amp; Windows Terminal</div>
         </div>
 
-        <div class="col-auto d-none d-md-inline-block">
-            <div class="h-100 d-flex align-items-center justify-content-center">
-                <div class="h-50 border-start border-2 border-dark"></div>
+        <div class="cta-group">
+            <a href="https://discord.gg/" class="btn-ghost bracket-btn" target="_blank" rel="noopener">
+                <i class="bi bi-discord"></i> Discord
+            </a>
+        </div>
+    </div>
+
+    <!-- Attribution -->
+    <div class="hero-org">
+        Organized by <a href="https://github.com/COD3RS" class="org-link" target="_blank" rel="noopener">COD3RS</a>
+    </div>
+
+    <!-- Scroll hint -->
+    <a href="#what" class="scroll-hint" aria-label="Scroll to learn more">
+        <span class="scroll-hint-text bracket-link">learn more</span>
+        <span class="scroll-arrow" aria-hidden="true">▼</span>
+    </a>
+
+</section>
+
+<!-- ── WHAT IS HTF ─────────────────────────────────────────────────────── -->
+<section class="content-section" id="what">
+    <div class="section-inner">
+        <h2 class="htf-font section-heading">What is HTF?</h2>
+        <div class="section-body">
+            <p>Hack The Flag is a cryptography competition. You connect, you get a cipher, you break it. The output is a flag — submit it, earn points, climb the leaderboard.</p>
+            <p>No prior experience required. Every cipher is solvable. The only question is how fast.</p>
+            <div class="flag-example">
+                <span class="flag-label">A flag looks like this:</span>
+                <code class="flag-code">&lt;HTF-this_is_a_flag/&gt;</code>
             </div>
         </div>
+    </div>
+    <div class="section-accent" aria-hidden="true"></div>
+</section>
 
-        <!-- SSH connect box -->
-        <div class="col-12 col-md-auto d-flex align-items-center justify-content-center" style="z-index: 2;">
-            <div class="htf-connect">
-                <div class="htf-connect-label"><span class="htf-prompt">&gt;_</span> CONNECT VIA SSH</div>
-                <div class="htf-connect-box">
-                    <code id="ssh-command">ssh app.hacktheflag.net</code>
-                    <button class="htf-copy-btn htf-bracket-btn" onclick="copySSH()" title="Copy">
-                        <i class="bi bi-clipboard" id="copy-icon"></i>
-                    </button>
+<!-- ── HOW IT WORKS ───────────────────────────────────────────────────── -->
+<section class="content-section content-section--alt" id="how">
+    <div class="section-inner">
+        <h2 class="htf-font section-heading">How it works</h2>
+        <ol class="steps">
+            <li class="step">
+                <span class="step-number htf-font">01</span>
+                <div class="step-body">
+                    <strong>Connect</strong>
+                    <p>SSH into the competition server when the event goes live.</p>
+                    <code class="inline-code">ssh app.hacktheflag.net</code>
                 </div>
-                <div class="htf-connect-hint">Works on macOS, Linux &amp; Windows Terminal</div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="d-flex justify-content-center flex-column pt-5">
-        <a href="#about-competition" class="htf-scroll-link d-inline-text text-decoration-none text-white" style="z-index: 2;">
-            <div class="align-items-center htf-font h4 htf-bracket-btn">check out more</div>
-            <div class="d-flex justify-content-center htf-scroll-arrow">▼</div>
-        </a>
-    </div>
-
-</div>
-
-
-<div class="light-content">
-    <div class="wave">
-        <img src="img/wave/Wvl1.png" alt="Hack The Flag wave design element 1">
-        <img src="img/wave/Wvl2.png" alt="Hack The Flag wave design element 2">
-        <img src="img/wave/Wvl3.png" alt="Hack The Flag wave design element 3">
-        <img src="img/wave/Wvl4.png" alt="Hack The Flag wave design element 4">
-    </div>
-</div>
-
-<!-- Additional Information Section -->
-<div class="light-content py-5 prevent-select">
-    <section class="text-content mb-5 pb-5" id="about-competition">
-        <h2 class="visually-hidden">About Hack The Flag Competition</h2>
-        <div class="pgp-content mention">
-            <pre>
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
-
-Hack The Flag is coming!
-
-If you would like to verify our messages, you can find the key at hacktheflag.net/pgp.
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQTekrx0eckWsB/79rp2S+4kcoYGIQUCaA6WXQAKCRB2S+4kcoYG
-IWOhAP0SlmxJ4LDwvLJJ70qBrlNMXX+Elg4JyIrBh2YpcRKA/QD+I2DRJvMtfv/D
-e79PFgXJy9yTiCQZ6YBptV87u0HFPwI=
-=wbUE
------END PGP SIGNATURE-----
-            </pre>
-        </div>
-
-        <!-- SEO-friendly version of the content -->
-        <div class="seo-content visually-hidden">
-            <p>Hack the Flag is a competition for anyone who likes to solve ciphers. The competition aims to promote
-                the world of cryptography and encourage people to learn more about it.</p>
-            <p>The competition will test your skills in solving ciphers and how quickly you can do it.</p>
-            <p>Your goal is to solve as many ciphers as possible and earn as many points as you can. The output of
-                each cipher will be a flag, which you will submit to our website. The flag will look like this: &lt;HTF-this_is_flag/&gt;</p>
-            <p>If you would like to verify our messages, you can find the key at <a href="pgp.html">hacktheflag.net/pgp</a>.
-            </p>
-        </div>
-    </section>
-
-    <div class="text-content mb-5">
-        <section id="more-about-htf">
-            <h2 class="htf-font h2 mb-4 text-center">More About Hack The Flag</h2>
-
-            <!-- Mission Section - Left Content -->
-            <div class="content-section left-content mb-5">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="section-content">
-                            <h3 class="h3">Our Mission</h3>
-                            <p>Hack The Flag is dedicated to promoting cryptography education and awareness through engaging cipher-solving competitions. We believe in making cryptography accessible to everyone, from beginners to experts.</p>
-                            <p>Our platform provides a space for cryptography enthusiasts to test their skills, learn new techniques, and connect with like-minded individuals passionate about codebreaking and security.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
-                        <img src="img/Team%20goals-pana.svg" class="img-fluid svg-icon" alt="People illustrations by Storyset"/>
-                        <a href="https://storyset.com/people" class="text-decoration-none text-muted">People illustrations by Storyset</a>
-                    </div>
+            </li>
+            <li class="step">
+                <span class="step-number htf-font">02</span>
+                <div class="step-body">
+                    <strong>Solve</strong>
+                    <p>Pick a cipher challenge. Break it — classical, modern, steganography, whatever it takes.</p>
                 </div>
-            </div>
-
-            <!-- Competitions Section - Right Content -->
-            <div class="content-section right-content mt-5">
-                <div class="row">
-                    <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
-                        <img src="img/App%20development-pana.svg" class="img-fluid svg-icon" alt="Computer illustrations by Storyset"/>
-                        <a href="https://storyset.com/computer" class="text-decoration-none text-muted">Computer illustrations by Storyset</a>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="section-content">
-                            <h3 class="h3">Competitions</h3>
-                            <p>Throughout the year, Hack The Flag hosts various cryptography competitions, including:</p>
-                            <ul>
-                                <li>Xmas Hunt (December)</li>
-                                <li>Seasonal cipher challenges</li>
-                                <li>Special themed events</li>
-                                <li>Beginner-friendly introductory competitions</li>
-                            </ul>
-                            <p>Each competition features unique ciphers and puzzles designed to challenge participants at all skill levels.</p>
-                        </div>
-                    </div>
+            </li>
+            <li class="step">
+                <span class="step-number htf-font">03</span>
+                <div class="step-body">
+                    <strong>Capture</strong>
+                    <p>Every solved cipher reveals a flag. Submit it.</p>
+                    <code class="inline-code">&lt;HTF-your_flag_here/&gt;</code>
                 </div>
-            </div>
-
-            <!-- Skills Section - Left Content -->
-            <div class="content-section left-content mt-5">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="section-content">
-                            <h3 class="h3">Skills You will Develop</h3>
-                            <p>Participating in Hack The Flag competitions helps you develop valuable skills in:</p>
-                            <ul>
-                                <li>Classical cryptography techniques</li>
-                                <li>Modern encryption methods</li>
-                                <li>Steganography and hidden messages</li>
-                                <li>Logical reasoning and problem-solving</li>
-                                <li>Pattern recognition</li>
-                                <li>Digital forensics basics</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
-                        <img src="img/Security%20On-pana.svg" class="img-fluid svg-icon" alt="Technology illustrations by Storyset"/>
-                        <a href="https://storyset.com/technology" class="text-decoration-none text-muted">Technology illustrations by Storyset</a>
-                    </div>
+            </li>
+            <li class="step">
+                <span class="step-number htf-font">04</span>
+                <div class="step-body">
+                    <strong>Repeat</strong>
+                    <p>More flags, more points. The leaderboard updates live.</p>
                 </div>
-            </div>
-
-            <!-- Community Section - Right Content -->
-            <div class="content-section right-content mt-5">
-                <div class="row">
-                    <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
-                        <img src="img/Future%20city-pana.svg" class="img-fluid svg-icon" alt="Technology illustrations by Storyset"/>
-                        <a href="https://storyset.com/city" class="text-decoration-none text-muted">City illustrations by Storyset</a>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="section-content">
-                            <h3 class="h3">Community</h3>
-                            <p>Join our growing community of cryptography enthusiasts! Hack The Flag brings together people from diverse backgrounds who share a passion for solving puzzles and breaking codes.</p>
-                            <p>Whether you're a cybersecurity professional, a student, or simply curious about cryptography, there's a place for you in the Hack The Flag community.</p>
-                            <p>Follow us on social media and join our upcoming events to connect with fellow cipher solvers!</p>
-
-                            <!-- Blog Mention -->
-                            <div class="mention">
-                                <a href="https://blog.hacktheflag.net" class="text-decoration-none text-white">
-                                    <h4 class="htf-font mb-2 htf-bracket-btn">Explore Our Blog</h4>
-                                </a>
-                                <p>Looking for more content about cryptography, ciphers, and security challenges? Visit our <a href="https://blog.hacktheflag.net" class="text-white htf-bracket-link"><strong>blog</strong></a> for tutorials, articles, and insights from the Hack The Flag team.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </li>
+        </ol>
     </div>
-</div>
+</section>
 
-<!-- Footer -->
-<div class="py-5 d-flex justify-content-center w-100 flex-column">
-    <div class="row justify-content-center gap-3 w-100 mb-4">
-        <hr class="w-25 mt-3" />
-        <div class="col-auto htf-font py-1">HTF</div>
-        <hr class="w-25 mt-3" />
-    </div>
-    <div class="container mb-4">
-        <div class="d-flex justify-content-center">
-            <div class="col-2 d-flex flex-column">
-                <span class="text-subtle small mb-2">Browse more:</span>
-                <a href="https://blog.hacktheflag.net" class="text-white htf-bracket-link">
-                    Blog
-                </a>
-            </div>
-            <div class="col-5">
-                <blockquote class="mb-2">
-                    If you have any questions for use do not hesitate to reach out to us.
-                </blockquote>
-
-                <ul class="nav social-links">
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="https://github.com/Hack-The-Flag" target="_blank" rel="noopener noreferrer" title="GitHub">
-                            <i class="bi bi-github"></i>
-                            <span class="visually-hidden">GitHub</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="https://www.linkedin.com/company/hack-the-flag/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                            <i class="bi bi-linkedin"></i>
-                            <span class="visually-hidden">LinkedIn</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="https://www.instagram.com/hack.the.flag/" target="_blank" rel="noopener noreferrer" title="Instagram">
-                            <i class="bi bi-instagram"></i>
-                            <span class="visually-hidden">Instagram</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="htf-font footer-name">Hack The Flag</span>
+            <span class="footer-by">by COD3RS</span>
         </div>
+        <nav class="footer-social" aria-label="Social links">
+            <a href="https://github.com/Hack-The-Flag" class="bracket-link" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/company/hack-the-flag/" class="bracket-link" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/hack.the.flag/" class="bracket-link" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="bi bi-instagram"></i></a>
+        </nav>
+        <span class="footer-pgp"><a href="pgp.html" class="bracket-link">PGP key</a></span>
     </div>
-</div>
-
-
+</footer>
 
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 <script src="index.js"></script>
-
 </body>
 </html>

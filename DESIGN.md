@@ -213,18 +213,20 @@ Use `<code>` tags. Never render it as plain text in prose.
 ## 9. Imagery
 
 ### Photography
-Real event photos are the single most effective thing you can add. They answer "is this legit?" faster than any copy.
+HTF is an online competition — no event photos exist yet. When they do (future in-person events, or Hack Esbjerg crossover), add a real photo to the hero immediately. Until then, the design must stand without imagery and it can.
 
-- Use photos from previous HTF or COD3RS events (Hack Esbjerg photos work too)
-- Show **people at screens** — the act of competing
-- Dark or desaturated treatment: `filter: brightness(0.7) contrast(1.1)` keeps them cohesive with the dark background
-- Never use stock photography or AI-generated imagery
+Never use stock photography or AI-generated imagery as a placeholder. An honest absence is better than a fake presence.
 
-### Illustrations
-Do not use generic SaaS-style SVG illustrations (the current Storyset set must go). If you want an abstract visual element, use:
-- The `circle.svg` geometric backdrop (already in `/img/`) — it's good, keep it
-- Custom terminal/cipher-themed ASCII art in `<pre>` blocks
-- A flag counter or live stats widget if available
+### Visual alternatives (current)
+Since there are no photos, the visual punch comes from:
+- **The decode animation** — this IS the hero visual. Let it breathe. Make it enormous.
+- **Bold stats** as graphic elements: number of editions, participants, ciphers, hours. These work like hackesbjerg's "100 HACKERS" headline.
+- **The `circle.svg` geometric backdrop** (`/img/circle.svg`) — keep it, it works
+- **A cipher/flag example** rendered in a code block — shows visitors exactly what they're solving
+- **Red color bar accents** — a full-width red line or left-border block reads as structure and energy
+
+### When photos arrive
+Drop them into the hero as a background or right-panel image. Use `filter: brightness(0.65) contrast(1.1)` to keep them cohesive with the dark page. No layout changes needed if the structure is built correctly from the start.
 
 ---
 
