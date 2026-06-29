@@ -73,10 +73,8 @@ The red is HTF's own color. It distinguishes HTF from Hack Esbjerg (purple).
 | **Red dim** | `#79282c` | Borders, hover states, subtle glows |
 | **Red faint** | `rgba(220,53,69,0.08)` | Background tints on cards/mentions |
 
-### COD3RS Reference
-When attributing COD3RS or linking to COD3RS properties (Hack Esbjerg, etc.), you may use the COD3RS purple `#715bf2` as a nod to the parent brand. Use sparingly — one touch point is enough.
-
 ### Never
+- Do not use purple on HTF. Purple is Hack Esbjerg's color. HTF is red. Full stop.
 - Do not introduce green, teal, or orange as new accent colors
 - Do not use white backgrounds or light sections on this page
 - Do not use multiple accent colors in the same viewport at once
@@ -86,12 +84,16 @@ When attributing COD3RS or linking to COD3RS properties (Hack Esbjerg, etc.), yo
 ## 6. Typography
 
 ### Display — HackTheFlag
-The custom `HackTheFlag-Regular.otf` font is the headline identity. Use it for:
+The custom `HackTheFlag-Regular.otf` font is the **sole display font** for HTF. This is what differentiates HTF visually from Hack Esbjerg (which uses a condensed grotesque). Use it for:
 - The event name / hero title
 - Section headings
-- Any "statement" copy (dates, numbers, taglines)
+- Stats and statement copy ("100 HACKERS", dates, taglines)
+- Navigation items
+- Button labels
 
-Pair with `'Share Tech Mono', monospace` for subheadings and labels when you want a technical feel.
+The HackTheFlag font plays the same role that the heavy condensed font plays on hackesbjerg.dk — big, bold, ownable. Lean into it at large sizes. It should feel like a poster, not a brochure.
+
+Pair with `'Share Tech Mono', monospace` for subheadings, labels, hints, and body copy where a technical/terminal feel is needed.
 
 ### Body — Share Tech Mono
 All body copy uses `'Share Tech Mono', monospace`. This keeps every line of text feeling like a terminal output — intentional, not accidental.
