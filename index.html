@@ -142,10 +142,10 @@
         <!-- SSH connect box -->
         <div class="col-12 col-md-auto d-flex align-items-center justify-content-center" style="z-index: 2;">
             <div class="htf-connect">
-                <div class="htf-connect-label">CONNECT VIA SSH</div>
+                <div class="htf-connect-label"><span class="htf-prompt">&gt;_</span> CONNECT VIA SSH</div>
                 <div class="htf-connect-box">
                     <code id="ssh-command">ssh app.hacktheflag.net</code>
-                    <button class="htf-copy-btn" onclick="copySSH()" title="Copy">
+                    <button class="htf-copy-btn htf-bracket-btn" onclick="copySSH()" title="Copy">
                         <i class="bi bi-clipboard" id="copy-icon"></i>
                     </button>
                 </div>
@@ -156,9 +156,9 @@
     </div>
 
     <div class="d-flex justify-content-center flex-column pt-5">
-        <a href="#about-competition" class="d-inline-text text-decoration-none text-white" style="z-index: 2;">
-            <div class="align-items-center htf-font h4">check out more</div>
-            <div class="d-flex justify-content-center">▼</div>
+        <a href="#about-competition" class="htf-scroll-link d-inline-text text-decoration-none text-white" style="z-index: 2;">
+            <div class="align-items-center htf-font h4 htf-bracket-btn">check out more</div>
+            <div class="d-flex justify-content-center htf-scroll-arrow">▼</div>
         </a>
     </div>
 
@@ -294,9 +294,9 @@ e79PFgXJy9yTiCQZ6YBptV87u0HFPwI=
                             <!-- Blog Mention -->
                             <div class="mention">
                                 <a href="https://blog.hacktheflag.net" class="text-decoration-none text-white">
-                                    <h4 class="htf-font mb-2">Explore Our Blog</h4>
+                                    <h4 class="htf-font mb-2 htf-bracket-btn">Explore Our Blog</h4>
                                 </a>
-                                <p>Looking for more content about cryptography, ciphers, and security challenges? Visit our <a href="https://blog.hacktheflag.net" class="text-white"><strong>blog</strong></a> for tutorials, articles, and insights from the Hack The Flag team.</p>
+                                <p>Looking for more content about cryptography, ciphers, and security challenges? Visit our <a href="https://blog.hacktheflag.net" class="text-white htf-bracket-link"><strong>blog</strong></a> for tutorials, articles, and insights from the Hack The Flag team.</p>
                             </div>
                         </div>
                     </div>
@@ -317,7 +317,7 @@ e79PFgXJy9yTiCQZ6YBptV87u0HFPwI=
         <div class="d-flex justify-content-center">
             <div class="col-2 d-flex flex-column">
                 <span class="text-subtle small mb-2">Browse more:</span>
-                <a href="https://blog.hacktheflag.net" class="text-white">
+                <a href="https://blog.hacktheflag.net" class="text-white htf-bracket-link">
                     Blog
                 </a>
             </div>

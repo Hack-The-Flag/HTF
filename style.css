@@ -354,3 +354,86 @@ blockquote {
 @media (max-width: 767px) {
     .htf-connect { min-width: 0; width: 100%; max-width: 360px; }
 }
+
+/* ── Terminal prompt prefix ───────────────────────────────────────────────── */
+
+.htf-prompt {
+    color: #dc3545;
+    margin-right: 0.3em;
+    opacity: 0.7;
+}
+
+/* ── [ ] bracket styling for interactive elements ────────────────────────── */
+
+.htf-bracket-btn {
+    position: relative;
+}
+
+.htf-bracket-btn::before,
+.htf-bracket-btn::after {
+    font-family: 'Share Tech Mono', monospace;
+    color: #3a3a3a;
+    transition: color 0.2s;
+}
+
+.htf-bracket-btn::before { content: '[ '; }
+.htf-bracket-btn::after  { content: ' ]'; }
+
+.htf-bracket-btn:hover::before,
+.htf-bracket-btn:hover::after {
+    color: #dc3545;
+}
+
+/* Smaller brackets for the copy button specifically */
+.htf-copy-btn.htf-bracket-btn::before,
+.htf-copy-btn.htf-bracket-btn::after {
+    font-size: 0.85em;
+    vertical-align: middle;
+}
+
+/* Inline bracket links (blog, etc.) */
+.htf-bracket-link {
+    position: relative;
+}
+
+.htf-bracket-link::before { content: '['; margin-right: 0.15em; color: #444; transition: color 0.2s; }
+.htf-bracket-link::after  { content: ']'; margin-left: 0.15em;  color: #444; transition: color 0.2s; }
+.htf-bracket-link:hover::before,
+.htf-bracket-link:hover::after { color: #dc3545; }
+
+/* ── Scroll-down link ─────────────────────────────────────────────────────── */
+
+.htf-scroll-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.2s;
+    opacity: 0.6;
+}
+
+.htf-scroll-link:hover { opacity: 1; }
+
+.htf-scroll-arrow {
+    animation: htf-bob 2s ease-in-out infinite;
+    color: #dc3545;
+    font-size: 1.1em;
+}
+
+@keyframes htf-bob {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(5px); }
+}
+
+/* ── Footer social links ─────────────────────────────────────────────────── */
+
+.social-links .nav-link {
+    position: relative;
+    transition: color 0.2s;
+}
+
+.social-links .nav-link::before { content: '['; margin-right: 0.1em; color: #333; transition: color 0.2s; }
+.social-links .nav-link::after  { content: ']'; margin-left: 0.1em;  color: #333; transition: color 0.2s; }
+.social-links .nav-link:hover::before,
+.social-links .nav-link:hover::after { color: #dc3545; }
+.social-links .nav-link:hover { color: #dc3545 !important; }
