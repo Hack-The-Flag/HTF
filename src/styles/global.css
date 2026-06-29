@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+
+@font-face {
+  font-family: 'HackTheFlag';
+  src: url('/HackTheFlag-Regular.otf') format('opentype');
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red:       #dc3545;
+  --red-dim:   #79282c;
+  --red-faint: rgba(220, 53, 69, 0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Share Tech Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #111; border-radius: 2px; }
+
+/* bracket decoration (non-React elements) */
+.bracket::before { content: '[ '; color: #333; transition: color 0.15s; }
+.bracket::after  { content: ' ]'; color: #333; transition: color 0.15s; }
+.bracket:hover::before, .bracket:hover::after { color: var(--red); }
+.bracket:hover { color: var(--red); }

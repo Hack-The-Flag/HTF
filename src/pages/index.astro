@@ -1,0 +1,679 @@
+---
+import '../styles/global.css';
+import DecodeTitle from '../components/DecodeTitle';
+import FlipBoard from '../components/FlipBoard';
+import DitherBackground from '../components/DitherBackground';
+import WorldMap from '../components/WorldMap';
+
+const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hack The Flag is a cryptography competition where you solve ciphers, break codes, and capture flags. Organized by COD3RS." />
+  <meta name="author" content="COD3RS" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Hack The Flag — Cryptography Competition by COD3RS" />
+  <meta property="og:description" content="Solve ciphers. Capture flags. Prove yourself." />
+  <meta property="og:image" content="/img/HTF-bold-320-sh-lg.png" />
+  <link rel="canonical" href="https://hacktheflag.net/" />
+  <link rel="icon" type="image/x-icon" href="/img/HTF-bold-320-sh-lg.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <title>Hack The Flag — Cryptography Competition by COD3RS</title>
+</head>
+<body>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+<section class="hero">
+
+  <!-- Circle geometry (background layer 0) -->
+  <div class="hero-circle" aria-hidden="true">
+    <img src="/img/circle.svg" alt="" />
+  </div>
+
+  <!-- Dither shader (background layer 1 — grain over the circle) -->
+  <DitherBackground client:only="react" />
+
+  <!-- Nav -->
+  <nav class="site-nav">
+    <a href="#top" class="nav-logo">HTF</a>
+    <ul class="nav-links">
+      <li><a href="#global" class="bracket">What</a></li>
+      <li><a href="#how" class="bracket">How it works</a></li>
+      <li><a href="https://blog.hacktheflag.net" class="bracket" target="_blank" rel="noopener">Blog</a></li>
+    </ul>
+  </nav>
+
+  <!-- Content (above dither, above circle) -->
+  <div class="hero-content">
+
+    <!-- Title decode animation -->
+    <DecodeTitle client:only="react" />
+
+    <!-- Tagline with flip board -->
+    <p class="hero-tagline">
+      Solve&nbsp;
+      <span class="tagline-flip">
+        <FlipBoard words={FLIP_WORDS} interval={2600} client:only="react" />
+      </span>
+    </p>
+
+    <!-- SSH connect -->
+    <div class="htf-connect">
+      <div class="connect-label">
+        <span class="prompt">&gt;_</span> connect via ssh
+      </div>
+      <div class="connect-box" id="connect-box">
+        <code id="ssh-command">ssh app.hacktheflag.net</code>
+        <button class="copy-btn" onclick="copySSH()" title="Copy to clipboard">
+          <i class="bi bi-clipboard" id="copy-icon"></i>
+        </button>
+      </div>
+      <div class="connect-hint">Works on macOS, Linux &amp; Windows Terminal</div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="cta-row">
+      <a href="#" class="btn-ghost bracket">
+        <i class="bi bi-discord"></i> Discord
+      </a>
+      <a href="https://blog.hacktheflag.net" class="btn-ghost bracket" target="_blank" rel="noopener">
+        Blog
+      </a>
+    </div>
+
+    <!-- Attribution -->
+    <p class="hero-org">
+      Organized by <a href="https://github.com/COD3RS" class="org-link" target="_blank" rel="noopener">COD3RS</a>
+    </p>
+
+  </div>
+
+  <!-- Scroll hint -->
+  <a href="#global" class="scroll-hint" aria-label="Scroll to learn more">
+    <span class="bracket scroll-hint-label">learn more</span>
+    <span class="scroll-arrow" aria-hidden="true">▼</span>
+  </a>
+
+</section>
+
+<!-- ── GLOBAL SECTION ─────────────────────────────────────────────────── -->
+<section class="section section-global" id="global">
+  <div class="section-inner">
+    <p class="section-eyebrow">Online &middot; Open &middot; Global</p>
+    <h2 class="section-heading">Players from everywhere.<br/>Flag from anywhere.</h2>
+    <p class="section-body">
+      Hack The Flag is fully online. No venue, no visa, no barrier. Connect from
+      wherever you are, compete against the world, prove yourself.
+    </p>
+  </div>
+  <div class="map-wrap">
+    <WorldMap client:visible />
+  </div>
+</section>
+
+<!-- ── WHAT IS HTF ────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="what">
+  <div class="section-inner">
+    <p class="section-eyebrow">The competition</p>
+    <h2 class="section-heading">What is HTF?</h2>
+    <p class="section-body">
+      Hack The Flag is a cryptography competition. You connect, you get a cipher,
+      you break it. The output is a flag — submit it, earn points, climb the leaderboard.
+    </p>
+    <p class="section-body">
+      No prior experience required. Every cipher is solvable.
+      The only question is how fast.
+    </p>
+    <div class="flag-example">
+      <span class="flag-label">A flag looks like this:</span>
+      <code class="flag-code">&lt;HTF-this_is_a_flag/&gt;</code>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ───────────────────────────────────────────────────── -->
+<section class="section" id="how">
+  <div class="section-inner">
+    <p class="section-eyebrow">Getting started</p>
+    <h2 class="section-heading">How it works</h2>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num">01</span>
+        <div class="step-body">
+          <strong>Connect</strong>
+          <p>SSH into the competition server when the event goes live.</p>
+          <code class="inline-code">ssh app.hacktheflag.net</code>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">02</span>
+        <div class="step-body">
+          <strong>Solve</strong>
+          <p>Pick a cipher challenge. Break it — classical, modern, steganography, whatever it takes.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">03</span>
+        <div class="step-body">
+          <strong>Capture</strong>
+          <p>Every solved cipher reveals a flag. Submit it.</p>
+          <code class="inline-code">&lt;HTF-your_flag_here/&gt;</code>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">04</span>
+        <div class="step-body">
+          <strong>Repeat</strong>
+          <p>More flags, more points. The leaderboard updates live.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-name">Hack The Flag</span>
+      <span class="footer-by">by COD3RS</span>
+    </div>
+    <nav class="footer-social" aria-label="Social links">
+      <a href="https://github.com/Hack-The-Flag" class="bracket" target="_blank" rel="noopener" title="GitHub">
+        <i class="bi bi-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/hack-the-flag/" class="bracket" target="_blank" rel="noopener" title="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+      </a>
+      <a href="https://www.instagram.com/hack.the.flag/" class="bracket" target="_blank" rel="noopener" title="Instagram">
+        <i class="bi bi-instagram"></i>
+      </a>
+    </nav>
+    <a href="/pgp.html" class="bracket footer-pgp">PGP key</a>
+  </div>
+</footer>
+
+</body>
+</html>
+
+<script>
+function copySSH() {
+  const cmd = (document.getElementById('ssh-command') as HTMLElement).textContent!;
+  navigator.clipboard.writeText(cmd).then(() => {
+    const icon = document.getElementById('copy-icon')!;
+    const btn = icon.closest('button')!;
+    icon.className = 'bi bi-clipboard-check';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      icon.className = 'bi bi-clipboard';
+      btn.classList.remove('copied');
+    }, 1800);
+  });
+}
+</script>
+
+<style>
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 24px 80px;
+}
+
+.hero-circle {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-circle img { height: 180vh; opacity: 0.07; }
+
+/* Content sits above both the circle and the dither canvas */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+/* ── Decode letters ──────────────────────────────────────────────────── */
+
+:global(.decode-letter) {
+  display: inline-block;
+  position: relative;
+  color: transparent;
+  text-transform: uppercase;
+}
+:global(.decode-letter)::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  background: white;
+  width: 0;
+  height: 1.1em;
+  transform: translate(-50%, -55%);
+  transition: width 0.08s;
+}
+:global(.decode-letter.state-1)::before { width: 1px; }
+:global(.decode-letter.state-2)::before { width: 0.5em; }
+:global(.decode-letter.state-3) { color: white; }
+:global(.decode-letter.state-3)::before { width: 0; }
+
+/* ── Tagline + flip ──────────────────────────────────────────────────── */
+
+.hero-tagline {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+  letter-spacing: 0.12em;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.tagline-flip {
+  display: inline-block;
+  color: #dc3545;
+  min-width: 9ch;
+  text-align: left;
+}
+
+/* ── Nav ─────────────────────────────────────────────────────────────── */
+
+.site-nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 48px;
+}
+
+.nav-logo {
+  font-family: 'HackTheFlag', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: white;
+  opacity: 0.4;
+  transition: opacity 0.15s;
+  text-decoration: none;
+}
+.nav-logo:hover { opacity: 1; }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: white; }
+
+/* ── SSH connect ─────────────────────────────────────────────────────── */
+
+.htf-connect {
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 300px;
+}
+
+.connect-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.prompt { color: #dc3545; margin-right: 0.3em; opacity: 0.7; }
+
+.connect-box {
+  display: flex;
+  align-items: center;
+  background: #0b0b0b;
+  border: 1px solid #79282c;
+  border-radius: 4px;
+  padding: 12px 16px;
+  gap: 14px;
+  box-shadow: 0 0 28px rgba(220,53,69,0.09);
+  transition: box-shadow 0.2s;
+}
+.connect-box:hover { box-shadow: 0 0 40px rgba(220,53,69,0.18); }
+
+.connect-box code {
+  flex: 1;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.95rem;
+  color: #e8e8e8;
+  white-space: nowrap;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: #3a3a3a;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 2px 0;
+  line-height: 1;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+.copy-btn:hover, .copy-btn.copied { color: #dc3545; }
+
+.connect-hint {
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: #333;
+  margin-top: 7px;
+}
+
+/* ── CTAs ────────────────────────────────────────────────────────────── */
+
+.cta-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 1px solid #222;
+  background: transparent;
+  color: #555;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn-ghost:hover { border-color: #dc3545; color: white; }
+
+/* ── Attribution ─────────────────────────────────────────────────────── */
+
+.hero-org {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #2a2a2a;
+}
+
+.org-link {
+  color: #444;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.org-link:hover { color: white; }
+
+/* ── Scroll hint ─────────────────────────────────────────────────────── */
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.scroll-hint:hover { opacity: 1; }
+
+.scroll-hint-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.scroll-arrow {
+  color: #dc3545;
+  font-size: 0.85rem;
+  animation: bob 2.2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* ── bracket decoration ───────────────────────────────────────────────── */
+
+.bracket::before { content: '[ '; color: #2a2a2a; transition: color 0.15s; }
+.bracket::after  { content: ' ]'; color: #2a2a2a; transition: color 0.15s; }
+.bracket:hover::before, .bracket:hover::after { color: #dc3545; }
+.bracket:hover { color: #dc3545; }
+
+/* ── Content sections ─────────────────────────────────────────────────── */
+
+.section {
+  position: relative;
+  padding: 96px 24px;
+  border-top: 1px solid #1a1a1a;
+}
+
+.section-alt { background-color: #0d0d0d; }
+
+.section-global { padding-bottom: 64px; }
+
+.section-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #dc3545;
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-family: 'HackTheFlag', monospace;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+}
+
+.section-body {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  max-width: 58ch;
+  margin-bottom: 16px;
+}
+
+.map-wrap {
+  max-width: 900px;
+  margin: 64px auto 0;
+  padding: 0 24px;
+}
+
+/* ── Flag example ─────────────────────────────────────────────────────── */
+
+.flag-example {
+  margin-top: 32px;
+  padding: 18px 22px;
+  background: #080808;
+  border: 1px solid #1a1a1a;
+  border-left: 3px solid #79282c;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flag-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.flag-code {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  color: #dc3545;
+}
+
+/* ── Steps ─────────────────────────────────────────────────────────────── */
+
+.steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid #1a1a1a;
+  align-items: flex-start;
+}
+.step:last-child { border-bottom: none; }
+
+.step-num {
+  font-family: 'HackTheFlag', monospace;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #2a2a2a;
+  line-height: 1;
+  min-width: 72px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.step:hover .step-num { color: #79282c; }
+
+.step-body strong {
+  display: block;
+  font-family: 'HackTheFlag', monospace;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.step-body p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 50ch;
+  margin-bottom: 10px;
+}
+
+.inline-code {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #dc3545;
+  background: rgba(220,53,69,0.06);
+  border: 1px solid rgba(220,53,69,0.14);
+  border-radius: 3px;
+  padding: 3px 10px;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+
+.site-footer {
+  border-top: 1px solid #1a1a1a;
+  padding: 40px 48px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-name {
+  font-family: 'HackTheFlag', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+}
+
+.footer-by {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.footer-social {
+  display: flex;
+  gap: 24px;
+  font-size: 1.1rem;
+}
+
+.footer-social a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-pgp {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .site-nav { padding: 20px 20px; }
+  .nav-links { gap: 14px; }
+  .htf-connect { min-width: 0; width: 100%; max-width: 340px; }
+  .section { padding: 64px 20px; }
+  .step { gap: 16px; }
+  .step-num { min-width: 48px; }
+  .site-footer { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
