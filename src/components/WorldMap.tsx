@@ -64,7 +64,7 @@ function DotGrid({ width, height }: { width: number; height: number }) {
       const lat = 90 - (y / height) * 180;
       const lng = (x / width) * 360 - 180;
       if (isLand(lat, lng)) {
-        dots.push(<circle key={`${x}-${y}`} cx={x} cy={y} r={0.8} fill="#222" />);
+        dots.push(<circle key={`${x}-${y}`} cx={x} cy={y} r={0.8} fill="#444" />);
       }
     }
   }
