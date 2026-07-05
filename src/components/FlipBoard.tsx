@@ -15,6 +15,11 @@ function ScrambleChar({ target, delay }: { target: string; delay: number }) {
   const resolved = useRef(false);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplay(target);
+      return;
+    }
+
     resolved.current = false;
     let ticks = 0;
     const maxTicks = 6;

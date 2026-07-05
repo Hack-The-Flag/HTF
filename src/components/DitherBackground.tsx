@@ -59,13 +59,15 @@ export default function DitherBackground() {
         }
       }
       ctx.putImageData(img, 0, 0);
-      frameRef.current = requestAnimationFrame(draw);
+      if (!reduceMotion) frameRef.current = requestAnimationFrame(draw);
     }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const ro = new ResizeObserver(() => { resize(); });
     ro.observe(canvas);
     resize();
-    frameRef.current = requestAnimationFrame(draw);
+    draw(0); // reduced motion renders this single frame and stops
 
     return () => {
       cancelAnimationFrame(frameRef.current);

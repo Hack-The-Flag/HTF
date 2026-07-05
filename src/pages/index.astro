@@ -61,6 +61,9 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
       </span>
     </p>
 
+    <!-- Date / location -->
+    <p class="hero-meta">Online <span class="meta-dot">&middot;</span> Worldwide</p>
+
     <!-- SSH connect -->
     <div class="htf-connect">
       <div class="connect-label">
@@ -77,10 +80,10 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
 
     <!-- CTAs -->
     <div class="cta-row">
-      <a href="#" class="btn-ghost bracket">
+      <a href="#" class="btn-primary">
         <i class="bi bi-discord"></i> Discord
       </a>
-      <a href="https://blog.hacktheflag.net" class="btn-ghost bracket" target="_blank" rel="noopener">
+      <a href="https://blog.hacktheflag.net" class="btn-ghost" target="_blank" rel="noopener">
         Blog
       </a>
     </div>
@@ -293,6 +296,18 @@ function copySSH() {
   text-align: left;
 }
 
+/* ── Date / location ─────────────────────────────────────────────────── */
+
+.hero-meta {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.meta-dot { color: #dc3545; }
+
 /* ── Nav ─────────────────────────────────────────────────────────────── */
 
 .site-nav {
@@ -400,23 +415,42 @@ function copySSH() {
   align-items: center;
 }
 
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #dc3545;
+  color: #ffffff;
+  border: none;
+  padding: 14px 32px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.btn-primary:hover { background: #79282c; box-shadow: 0 0 24px rgba(220,53,69,0.35); }
+
 .btn-ghost {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 22px;
+  padding: 14px 32px;
   border: 1px solid #333;
   background: transparent;
-  color: #888;
+  color: #ffffff;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.875rem;
+  font-size: 1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-radius: 4px;
   text-decoration: none;
   transition: border-color 0.15s, color 0.15s;
 }
-.btn-ghost:hover { border-color: #dc3545; color: white; }
+.btn-ghost:hover { border-color: #dc3545; color: #dc3545; }
 
 /* ── Attribution ─────────────────────────────────────────────────────── */
 

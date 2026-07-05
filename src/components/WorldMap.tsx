@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
+import { motion, useAnimation, useInView, useReducedMotion } from 'framer-motion';
 
 // Simplified equirectangular projection
 function latLngToXY(
@@ -99,8 +99,11 @@ function isLand(lat: number, lng: number): boolean {
 }
 
 function AnimatedArc({
-  d, delay, color,
-}: { d: string; delay: number; color: string }) {
+  d, delay, color, reduceMotion,
+}: { d: string; delay: number; color: string; reduceMotion: boolean }) {
+  if (reduceMotion) {
+    return <path d={d} fill="none" stroke={color} strokeWidth={1} strokeLinecap="round" opacity={0.6} />;
+  }
   return (
     <motion.path
       d={d}
@@ -123,6 +126,7 @@ function AnimatedArc({
 export default function WorldMap({ dots = DEFAULT_DOTS }: WorldMapProps) {
   const ref = useRef<SVGSVGElement>(null);
   const inView = useInView(ref, { once: false, margin: '-100px' });
+  const reduceMotion = useReducedMotion();
   const W = 800;
   const H = 400;
 
@@ -143,30 +147,36 @@ export default function WorldMap({ dots = DEFAULT_DOTS }: WorldMapProps) {
           const d = arcPath(x1, y1, x2, y2, W);
           return (
             <g key={i}>
-              <AnimatedArc d={d} delay={i * 0.4} color="#dc3545" />
+              <AnimatedArc d={d} delay={i * 0.4} color="#dc3545" reduceMotion={!!reduceMotion} />
               {/* Origin dot */}
-              <motion.circle
-                cx={x1} cy={y1} r={2}
-                fill="#dc3545"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 0.9 }}
-                transition={{ delay: i * 0.4, duration: 0.3 }}
-              />
+              {reduceMotion ? (
+                <circle cx={x1} cy={y1} r={2} fill="#dc3545" opacity={0.9} />
+              ) : (
+                <motion.circle
+                  cx={x1} cy={y1} r={2}
+                  fill="#dc3545"
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 0.9 }}
+                  transition={{ delay: i * 0.4, duration: 0.3 }}
+                />
+              )}
               {/* Destination pulse */}
-              <motion.circle
-                cx={x2} cy={y2} r={3}
-                fill="none"
-                stroke="#dc3545"
-                strokeWidth={1}
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: [1, 2.5], opacity: [0.8, 0] }}
-                transition={{
-                  delay: i * 0.4 + 1.6,
-                  duration: 0.8,
-                  repeat: Infinity,
-                  repeatDelay: DEFAULT_DOTS.length * 0.4,
-                }}
-              />
+              {!reduceMotion && (
+                <motion.circle
+                  cx={x2} cy={y2} r={3}
+                  fill="none"
+                  stroke="#dc3545"
+                  strokeWidth={1}
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: [1, 2.5], opacity: [0.8, 0] }}
+                  transition={{
+                    delay: i * 0.4 + 1.6,
+                    duration: 0.8,
+                    repeat: Infinity,
+                    repeatDelay: DEFAULT_DOTS.length * 0.4,
+                  }}
+                />
+              )}
             </g>
           );
         })}
@@ -176,12 +186,16 @@ export default function WorldMap({ dots = DEFAULT_DOTS }: WorldMapProps) {
           const [x, y] = latLngToXY(55.5, 8.4, W, H);
           return (
             <g>
-              <motion.circle
-                cx={x} cy={y} r={4}
-                fill="#dc3545"
-                animate={{ opacity: [1, 0.4, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              {reduceMotion ? (
+                <circle cx={x} cy={y} r={4} fill="#dc3545" />
+              ) : (
+                <motion.circle
+                  cx={x} cy={y} r={4}
+                  fill="#dc3545"
+                  animate={{ opacity: [1, 0.4, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              )}
               <circle cx={x} cy={y} r={8} fill="none" stroke="#dc3545" strokeWidth={0.5} opacity={0.4} />
             </g>
           );

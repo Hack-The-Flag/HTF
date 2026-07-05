@@ -15,6 +15,13 @@ export default function DecodeTitle() {
   const lettersRef = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      lettersRef.current.forEach(el => el?.classList.add('state-3'));
+      return;
+    }
+
     const indices = shuffle(LETTERS.map((_, i) => i));
 
     indices.forEach((idx, order) => {
