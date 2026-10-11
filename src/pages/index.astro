@@ -4,6 +4,7 @@ import DecodeTitle from '../components/DecodeTitle';
 import FlipBoard from '../components/FlipBoard';
 import DitherBackground from '../components/DitherBackground';
 import WorldMap from '../components/WorldMap';
+import ObfuscatedCountdown from '../components/ObfuscatedCountdown';
 
 const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
 ---
@@ -49,6 +50,9 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
 
   <!-- Content (above dither, above circle) -->
   <div class="hero-content">
+
+    <!-- Countdown teaser (obfuscated, no real deadline) -->
+    <ObfuscatedCountdown client:only="react" />
 
     <!-- Title decode animation -->
     <DecodeTitle client:only="react" />
@@ -275,6 +279,64 @@ function copySSH() {
 :global(.decode-letter.state-2)::before { width: 0.5em; }
 :global(.decode-letter.state-3) { color: white; }
 :global(.decode-letter.state-3)::before { width: 0; }
+
+/* ── Countdown ───────────────────────────────────────────────────────── */
+
+:global(.countdown) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+:global(.countdown-label) {
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #dc3545;
+}
+
+:global(.countdown-row),
+:global(.countdown-group) {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+:global(.countdown-unit) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+:global(.countdown-digits),
+:global(.countdown-sep) {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  line-height: 1;
+}
+
+:global(.countdown-digits) {
+  display: flex;
+  color: white;
+  text-shadow: 0 0 18px rgba(220,53,69,0.35);
+}
+
+:global(.countdown-cell) {
+  display: inline-block;
+  width: 1ch;
+  text-align: center;
+}
+
+:global(.countdown-sep) { color: #79282c; }
+
+:global(.countdown-unit-label) {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #666;
+}
 
 /* ── Tagline + flip ──────────────────────────────────────────────────── */
 
@@ -668,6 +730,7 @@ function copySSH() {
 
 @media (max-width: 640px) {
   .site-nav { padding: 20px 20px; }
+  :global(.countdown-row), :global(.countdown-group) { gap: 8px; }
   .nav-links { gap: 14px; }
   .htf-connect { min-width: 0; width: 100%; max-width: 340px; }
   .section { padding: 64px 20px; }
