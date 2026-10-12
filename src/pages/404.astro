@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="/img/HTF-bold-320-sh-lg.png" />
+  <title>Page not found | Hack The Flag</title>
+</head>
+<body>
+
+<main class="not-found">
+  <p class="not-found-code">404</p>
+  <h1>No flag here.</h1>
+  <a href="/" class="bracket">Back to Hack The Flag</a>
+</main>
+
+</body>
+</html>
+
+<style>
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 2rem;
+    text-align: center;
+  }
+  .not-found-code { color: var(--red); font-size: 1rem; letter-spacing: 0.3em; }
+  .not-found h1 { font-size: clamp(1.75rem, 5vw, 3rem); font-weight: 400; }
+  .not-found a { color: #fff; text-decoration: none; }
+</style>
