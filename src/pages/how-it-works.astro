@@ -1,0 +1,124 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How to play Hack The Flag: connect over SSH with your own key, pick a riddle, submit the answer, and how points and the scoreboard work." />
+  <meta name="author" content="COD3RS" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="How Hack The Flag Works: Playing a CTF Over SSH" />
+  <meta property="og:description" content="Connect over SSH, pick a riddle, submit the answer, climb the scoreboard." />
+  <meta property="og:image" content="/img/HTF-bold-320-sh-lg.png" />
+  <link rel="canonical" href="https://hacktheflag.net/how-it-works/" />
+  <link rel="icon" type="image/x-icon" href="/img/HTF-bold-320-sh-lg.png" />
+  <title>How Hack The Flag Works: Playing a CTF Over SSH</title>
+</head>
+<body>
+
+<main class="guide">
+  <a href="/" class="bracket guide-back">Hack The Flag</a>
+
+  <h1>How it works</h1>
+  <p>
+    Hack The Flag runs in your terminal. There is no website to log in to and no
+    client to install. You connect with SSH and everything happens there.
+  </p>
+
+  <h2>1. Connect</h2>
+  <pre><code>ssh app.hacktheflag.net</code></pre>
+  <p>
+    There is no sign-up form and no password. The server identifies you by your SSH
+    public key. The first time you connect it creates a player for that key and gives
+    you a nickname. Every later connection from the same key is the same player.
+  </p>
+  <p>
+    That means you need an SSH key. If <code>ls ~/.ssh/*.pub</code> shows nothing,
+    create one first:
+  </p>
+  <pre><code>ssh-keygen -t ed25519</code></pre>
+  <p>
+    It also means your key is your account. Connect from another machine with a
+    different key and you start from zero, so copy your key if you want to play
+    from two computers.
+  </p>
+
+  <h2>2. Pick a riddle</h2>
+  <p>
+    The main menu has three places to go: Riddles, Scoreboard and My Progress. Move
+    with the arrow keys, open with Enter, go back with Esc, quit with <code>q</code>.
+  </p>
+  <p>
+    Riddles lists every challenge with its difficulty and whether you have solved it.
+    Open one to read it. Each riddle is a cipher or a puzzle that leads to one answer.
+  </p>
+
+  <h2>3. Submit the answer</h2>
+  <p>
+    Type your answer into the riddle screen and press Enter. You are told straight
+    away whether it is right. Capital letters do not matter. Wrong answers cost
+    nothing, but submissions are rate limited, so guessing in bulk will not work.
+  </p>
+  <p>Flags look like this:</p>
+  <pre><code>&lt;HTF-this_is_a_flag/&gt;</code></pre>
+
+  <h2>4. Scoring</h2>
+  <table>
+    <thead><tr><th>Difficulty</th><th>Points</th></tr></thead>
+    <tbody>
+      <tr><td>Easy</td><td>100</td></tr>
+      <tr><td>Medium</td><td>200</td></tr>
+      <tr><td>Hard</td><td>300</td></tr>
+    </tbody>
+  </table>
+  <p>
+    The first player to solve a riddle gets one extra point, which is what separates
+    players who are otherwise level. Only solves made before the edition closes count
+    toward the scoreboard.
+  </p>
+
+  <h2>New to this?</h2>
+  <p>
+    The <a href="https://blog.hacktheflag.net/">blog</a> has guides on the tools and
+    ciphers you are likely to meet.
+  </p>
+</main>
+
+</body>
+</html>
+
+<style>
+  .guide {
+    max-width: 68ch;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+    line-height: 1.8;
+  }
+  .guide-back { color: #fff; text-decoration: none; font-size: 0.8rem; }
+  .guide h1 {
+    font-family: 'HackTheFlag', monospace;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin: 48px 0 28px;
+  }
+  .guide h2 { font-size: 1.1rem; font-weight: 400; color: var(--red); margin: 48px 0 12px; }
+  .guide p { color: rgba(255,255,255,0.75); margin-bottom: 16px; }
+  .guide a:not(.guide-back) { color: var(--red); }
+  .guide code { color: var(--red); }
+  .guide pre {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-left: 3px solid var(--red-dim);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+  }
+  .guide table { border-collapse: collapse; margin-bottom: 16px; }
+  .guide th, .guide td { text-align: left; padding: 6px 28px 6px 0; border-bottom: 1px solid #1a1a1a; }
+  .guide th { color: rgba(255,255,255,0.5); font-weight: 400; }
+</style>
