@@ -12,7 +12,6 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.16.0",
     "clsx": "^2.1.1",
-    "dotted-map": "^3.1.0",
     "framer-motion": "^11.11.0",
     "motion": "^13.1.1",
     "react": "^18.3.0",
