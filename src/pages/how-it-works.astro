@@ -1,23 +1,14 @@
 ---
-import '../styles/global.css';
+import Base from '../layouts/Base.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="How to play Hack The Flag: connect over SSH with your own key, pick a riddle, submit the answer, and how points and the scoreboard work." />
-  <meta name="author" content="COD3RS" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="How Hack The Flag Works: Playing a CTF Over SSH" />
-  <meta property="og:description" content="Connect over SSH, pick a riddle, submit the answer, climb the scoreboard." />
-  <meta property="og:image" content="/img/HTF-bold-320-sh-lg.png" />
-  <link rel="canonical" href="https://hacktheflag.net/how-it-works/" />
-  <link rel="icon" type="image/x-icon" href="/img/HTF-bold-320-sh-lg.png" />
-  <title>How Hack The Flag Works: Playing a CTF Over SSH</title>
-</head>
-<body>
+<Base
+  title="How Hack The Flag Works: Playing a CTF Over SSH"
+  description="How to play Hack The Flag: connect over SSH with your own key, pick a riddle, submit the answer, and how points and the scoreboard work."
+  canonical="https://hacktheflag.net/how-it-works/"
+  ogDescription="Connect over SSH, pick a riddle, submit the answer, climb the scoreboard."
+>
+
 
 <main class="guide">
   <a href="/" class="bracket guide-back">Hack The Flag</a>
@@ -87,8 +78,7 @@ import '../styles/global.css';
   </p>
 </main>
 
-</body>
-</html>
+</Base>
 
 <style>
   .guide {
