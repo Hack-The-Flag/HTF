@@ -1,5 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hack The Flag', item: 'https://hacktheflag.net/' },
+    { '@type': 'ListItem', position: 2, name: 'How it works', item: 'https://hacktheflag.net/how-it-works/' },
+  ],
+};
 ---
 
 <Base
@@ -8,6 +17,7 @@ import Base from '../layouts/Base.astro';
   canonical="https://hacktheflag.net/how-it-works/"
   ogDescription="Connect over SSH, pick a riddle, submit the answer, climb the scoreboard."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 
 <main class="guide">
