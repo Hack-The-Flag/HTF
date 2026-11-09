@@ -17,9 +17,11 @@ export default function DecodeTitle() {
   useEffect(() => {
     const indices = shuffle(LETTERS.map((_, i) => i));
 
-    indices.forEach((idx, order) => {
+    indices.forEach(idx => {
       const el = lettersRef.current[idx];
-      if (!el || el.textContent === ' ') return;
+      if (!el) return;
+      // Hide only once hydrated, so the server-rendered title stays readable if JS is slow or fails.
+      el.classList.add('decoding');
 
       const delay = Math.round(Math.random() * 1200) + 100;
 

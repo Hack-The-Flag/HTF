@@ -42,6 +42,8 @@ const jsonLd = {
     },
     {
       '@type': 'Blog',
+      '@id': 'https://blog.hacktheflag.net/#blog',
+      name: 'Hack The Flag Blog',
       url: 'https://blog.hacktheflag.net/',
       publisher: { '@id': 'https://hacktheflag.net/#org' },
     },
@@ -71,7 +73,7 @@ const jsonLd = {
 
   <!-- Nav -->
   <nav class="site-nav">
-    <a href="#top" class="nav-logo">HTF</a>
+    <a href="/" class="nav-logo">HTF</a>
     <ul class="nav-links">
       <li><a href="#global" class="bracket">What</a></li>
       <li><a href="/how-it-works/" class="bracket">How it works</a></li>
@@ -291,8 +293,8 @@ btn.addEventListener('click', () => {
   position: relative;
   text-transform: uppercase;
 }
-/* Letters are readable without JS; with JS they start hidden and DecodeTitle reveals them. */
-:global(.js .decode-letter) { color: transparent; }
+/* Letters are readable until DecodeTitle hydrates, hides them and reveals them one by one. */
+:global(.decode-letter.decoding) { color: transparent; }
 :global(.decode-letter)::before {
   content: '';
   position: absolute;
@@ -305,7 +307,7 @@ btn.addEventListener('click', () => {
 }
 :global(.decode-letter.state-1)::before { width: 1px; }
 :global(.decode-letter.state-2)::before { width: 0.5em; }
-:global(.js .decode-letter.state-3) { color: white; }
+:global(.decode-letter.decoding.state-3) { color: white; }
 :global(.decode-letter.state-3)::before { width: 0; }
 
 /* ── Countdown ───────────────────────────────────────────────────────── */
@@ -779,5 +781,10 @@ btn.addEventListener('click', () => {
   .site-nav { padding: 18px 16px; gap: 12px; }
   .nav-links { gap: 8px; }
   .nav-links a { font-size: 0.7rem; letter-spacing: 0.1em; }
+}
+
+@media (max-width: 360px) {
+  .nav-links a { font-size: 0.64rem; letter-spacing: 0.04em; }
+  .nav-links .bracket::before, .nav-links .bracket::after { content: none; }
 }
 </style>

@@ -28,7 +28,8 @@ export function WorldMap({ dots = [], lineColor = "#dc3545" }: MapProps) {
     return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
   };
 
-  // ponytail: /img/world-dots.svg was pre-generated once with dotted-map ({height:100, grid:"diagonal"}, radius 0.22, #FFFFFF22); regenerate if the look changes
+  // ponytail: /img/world-dots.svg was pre-generated once with dotted-map ({height:100, grid:"diagonal"}, radius 0.22, #FFFFFF22),
+  // then packed into one path of zero-length round-capped strokes (stroke-width .44). Regenerate if the look changes.
   return (
     <div className="w-full aspect-[2/1] rounded-lg relative font-sans" style={{ background: 'transparent' }}>
       <img
