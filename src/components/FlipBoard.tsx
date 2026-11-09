@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*?<>/\\';
 
@@ -9,9 +9,8 @@ interface FlipBoardProps {
 }
 
 function ScrambleChar({ target, delay }: { target: string; delay: number }) {
-  const [display, setDisplay] = useState(() =>
-    CHARS[Math.floor(Math.random() * CHARS.length)]
-  );
+  // Start on the real letter so the server-rendered HTML reads correctly; the effect scrambles it.
+  const [display, setDisplay] = useState(target);
   const resolved = useRef(false);
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export default function FlipBoard({ words, interval = 2800 }: FlipBoardProps) {
   const word = words[index].toUpperCase();
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <motion.span
         key={index}
         initial={{ opacity: 0 }}

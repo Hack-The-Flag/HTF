@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const LETTERS = 'HackTheFlag'.split('');
+const LETTERS = 'Hack The Flag'.split('');
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -21,7 +21,7 @@ export default function DecodeTitle() {
       const el = lettersRef.current[idx];
       if (!el || el.textContent === ' ') return;
 
-      const delay = Math.round(Math.random() * 2500) + 100;
+      const delay = Math.round(Math.random() * 1200) + 100;
 
       setTimeout(() => {
         el.classList.add('state-1');
@@ -39,11 +39,11 @@ export default function DecodeTitle() {
     <h1
       className="font-htf uppercase tracking-tight leading-none select-none"
       style={{ fontSize: 'clamp(3rem, 10vw, 8rem)' }}
-      aria-label="Hack The Flag"
     >
       {LETTERS.map((char, i) => {
         if (char === ' ') {
-          return <span key={i} style={{ display: 'inline-block', width: '0.3em' }} />;
+          // Real space in the HTML text ("Hack The Flag"), zero width so the look is unchanged.
+          return <span key={i} style={{ fontSize: 0 }}>{' '}</span>;
         }
         return (
           <span

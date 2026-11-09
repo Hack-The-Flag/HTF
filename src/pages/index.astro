@@ -12,6 +12,7 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script is:inline>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Hack The Flag is a cryptography CTF by COD3RS. Connect over SSH, solve ciphers and riddles, submit your answers and climb the scoreboard." />
@@ -55,13 +56,13 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
     <ObfuscatedCountdown client:only="react" />
 
     <!-- Title decode animation -->
-    <DecodeTitle client:only="react" />
+    <DecodeTitle client:load />
 
     <!-- Tagline with flip board -->
     <p class="hero-tagline">
       Solve&nbsp;
       <span class="tagline-flip">
-        <FlipBoard words={FLIP_WORDS} interval={2600} client:only="react" />
+        <FlipBoard words={FLIP_WORDS} interval={2600} client:load />
       </span>
     </p>
 
@@ -263,9 +264,10 @@ function copySSH() {
 :global(.decode-letter) {
   display: inline-block;
   position: relative;
-  color: transparent;
   text-transform: uppercase;
 }
+/* Letters are readable without JS; with JS they start hidden and DecodeTitle reveals them. */
+:global(.js .decode-letter) { color: transparent; }
 :global(.decode-letter)::before {
   content: '';
   position: absolute;
@@ -278,7 +280,7 @@ function copySSH() {
 }
 :global(.decode-letter.state-1)::before { width: 1px; }
 :global(.decode-letter.state-2)::before { width: 0.5em; }
-:global(.decode-letter.state-3) { color: white; }
+:global(.js .decode-letter.state-3) { color: white; }
 :global(.decode-letter.state-3)::before { width: 0; }
 
 /* ── Countdown ───────────────────────────────────────────────────────── */
