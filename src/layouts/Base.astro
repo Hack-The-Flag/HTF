@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Absolute canonical URL. Pages without one (404) get no canonical or OG tags. */
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  robots?: string;
+}
+
+const { title, description, canonical, ogTitle = title, ogDescription = description, robots = 'index, follow' } = Astro.props;
+const ogImage = 'https://hacktheflag.net/img/og.png';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <meta name="author" content="COD3RS" />
+  <meta name="robots" content={robots} />
+  {canonical && (
+    <>
+      <link rel="canonical" href={canonical} />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Hack The Flag" />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:title" content={ogTitle} />
+      {ogDescription && <meta property="og:description" content={ogDescription} />}
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Hack The Flag: cryptography CTF over SSH, by COD3RS" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={ogTitle} />
+      {ogDescription && <meta name="twitter:description" content={ogDescription} />}
+      <meta name="twitter:image" content={ogImage} />
+    </>
+  )}
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/img/HTF-bold-320-sh-lg.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" />
+  <slot name="head" />
+</head>
+<body>
+  <slot />
+</body>
+</html>

@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import Base from '../layouts/Base.astro';
 import DecodeTitle from '../components/DecodeTitle';
 import FlipBoard from '../components/FlipBoard';
 import DitherBackground from '../components/DitherBackground';
@@ -7,25 +7,58 @@ import WorldMap from '../components/WorldMap';
 import ObfuscatedCountdown from '../components/ObfuscatedCountdown';
 
 const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
+
+// Organization + WebSite structured data. Public brand facts only, no people.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://hacktheflag.net/#org',
+      name: 'Hack The Flag',
+      alternateName: 'HTF',
+      url: 'https://hacktheflag.net/',
+      logo: 'https://hacktheflag.net/img/HTF-bold-320-sh-lg.png',
+      sameAs: [
+        'https://github.com/Hack-The-Flag',
+        'https://www.linkedin.com/company/hack-the-flag/',
+        'https://www.instagram.com/hack.the.flag/',
+      ],
+      parentOrganization: {
+        '@type': 'Organization',
+        '@id': 'https://cod3rs.org/#org',
+        name: 'COD3RS',
+        url: 'https://cod3rs.org/',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://hacktheflag.net/#website',
+      url: 'https://hacktheflag.net/',
+      name: 'Hack The Flag',
+      alternateName: 'HTF',
+      inLanguage: 'en',
+      publisher: { '@id': 'https://hacktheflag.net/#org' },
+    },
+    {
+      '@type': 'Blog',
+      '@id': 'https://blog.hacktheflag.net/#blog',
+      name: 'Hack The Flag Blog',
+      url: 'https://blog.hacktheflag.net/',
+      publisher: { '@id': 'https://hacktheflag.net/#org' },
+    },
+  ],
+};
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hack The Flag is a cryptography CTF by COD3RS. Connect over SSH, solve ciphers and riddles, submit your answers and climb the scoreboard." />
-  <meta name="author" content="COD3RS" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Hack The Flag (HTF): Cryptography CTF by COD3RS" />
-  <meta property="og:description" content="Solve ciphers. Capture flags. Prove yourself." />
-  <meta property="og:image" content="/img/HTF-bold-320-sh-lg.png" />
-  <link rel="canonical" href="https://hacktheflag.net/" />
-  <link rel="icon" type="image/x-icon" href="/img/HTF-bold-320-sh-lg.png" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-  <title>Hack The Flag (HTF): Cryptography CTF by COD3RS</title>
-</head>
-<body>
+<Base
+  title="Hack The Flag (HTF): Cryptography CTF by COD3RS"
+  description="Hack The Flag is a cryptography CTF by COD3RS. Connect over SSH, solve ciphers and riddles, submit your answers and climb the scoreboard."
+  canonical="https://hacktheflag.net/"
+  ogDescription="Solve ciphers. Capture flags. Prove yourself."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
 
 <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
 <section class="hero">
@@ -40,10 +73,10 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
 
   <!-- Nav -->
   <nav class="site-nav">
-    <a href="#top" class="nav-logo">HTF</a>
+    <a href="/" class="nav-logo">HTF</a>
     <ul class="nav-links">
       <li><a href="#global" class="bracket">What</a></li>
-      <li><a href="#how" class="bracket">How it works</a></li>
+      <li><a href="/how-it-works/" class="bracket">How it works</a></li>
       <li><a href="https://blog.hacktheflag.net" class="bracket" target="_blank" rel="noopener">Blog</a></li>
     </ul>
   </nav>
@@ -55,13 +88,13 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
     <ObfuscatedCountdown client:only="react" />
 
     <!-- Title decode animation -->
-    <DecodeTitle client:only="react" />
+    <DecodeTitle client:load />
 
     <!-- Tagline with flip board -->
     <p class="hero-tagline">
       Solve&nbsp;
       <span class="tagline-flip">
-        <FlipBoard words={FLIP_WORDS} interval={2600} client:only="react" />
+        <FlipBoard words={FLIP_WORDS} interval={2600} client:load />
       </span>
     </p>
 
@@ -72,8 +105,8 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
       </div>
       <div class="connect-box" id="connect-box">
         <code id="ssh-command">ssh app.hacktheflag.net</code>
-        <button class="copy-btn" onclick="copySSH()" title="Copy to clipboard">
-          <i class="bi bi-clipboard" id="copy-icon"></i>
+        <button class="copy-btn" type="button" title="Copy to clipboard" aria-label="Copy to clipboard">
+          <svg class="icon icon-copy" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg><svg class="icon icon-check" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>
         </button>
       </div>
       <div class="connect-hint">Works on macOS, Linux &amp; Windows Terminal</div>
@@ -82,7 +115,7 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
     <!-- CTAs -->
     <div class="cta-row">
       <a href="https://discord.gg/jZzVbN2gmA" class="btn-ghost bracket" target="_blank" rel="noopener">
-        <i class="bi bi-discord"></i> Discord
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/></svg> Discord
       </a>
       <a href="https://blog.hacktheflag.net" class="btn-ghost bracket" target="_blank" rel="noopener">
         Blog
@@ -157,7 +190,7 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
         <span class="step-num">02</span>
         <div class="step-body">
           <strong>Solve</strong>
-          <p>Pick a cipher challenge. Break it — classical, modern, steganography, whatever it takes.</p>
+          <p>Pick a riddle from the menu. Break the cipher — classical, modern, steganography, whatever it takes.</p>
         </div>
       </li>
       <li class="step">
@@ -189,36 +222,31 @@ const FLIP_WORDS = ['ciphers', 'codes', 'flags', 'yourself'];
     </div>
     <nav class="footer-social" aria-label="Social links">
       <a href="https://github.com/Hack-The-Flag" class="bracket" target="_blank" rel="noopener" title="GitHub">
-        <i class="bi bi-github"></i>
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
       </a>
       <a href="https://www.linkedin.com/company/hack-the-flag/" class="bracket" target="_blank" rel="noopener" title="LinkedIn">
-        <i class="bi bi-linkedin"></i>
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
       </a>
       <a href="https://www.instagram.com/hack.the.flag/" class="bracket" target="_blank" rel="noopener" title="Instagram">
-        <i class="bi bi-instagram"></i>
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
       </a>
     </nav>
     <a href="/pgp.html" class="bracket footer-pgp">PGP key</a>
   </div>
 </footer>
 
-</body>
-</html>
+</Base>
 
 <script>
-function copySSH() {
-  const cmd = (document.getElementById('ssh-command') as HTMLElement).textContent!;
+// Bundled as a module, so bind the click here rather than with an inline onclick.
+const btn = document.querySelector<HTMLButtonElement>('.copy-btn')!;
+btn.addEventListener('click', () => {
+  const cmd = document.getElementById('ssh-command')!.textContent!;
   navigator.clipboard.writeText(cmd).then(() => {
-    const icon = document.getElementById('copy-icon')!;
-    const btn = icon.closest('button')!;
-    icon.className = 'bi bi-clipboard-check';
     btn.classList.add('copied');
-    setTimeout(() => {
-      icon.className = 'bi bi-clipboard';
-      btn.classList.remove('copied');
-    }, 1800);
+    setTimeout(() => btn.classList.remove('copied'), 1800);
   });
-}
+});
 </script>
 
 <style>
@@ -263,9 +291,10 @@ function copySSH() {
 :global(.decode-letter) {
   display: inline-block;
   position: relative;
-  color: transparent;
   text-transform: uppercase;
 }
+/* Letters are readable until DecodeTitle hydrates, hides them and reveals them one by one. */
+:global(.decode-letter.decoding) { color: transparent; }
 :global(.decode-letter)::before {
   content: '';
   position: absolute;
@@ -278,7 +307,7 @@ function copySSH() {
 }
 :global(.decode-letter.state-1)::before { width: 1px; }
 :global(.decode-letter.state-2)::before { width: 0.5em; }
-:global(.decode-letter.state-3) { color: white; }
+:global(.decode-letter.decoding.state-3) { color: white; }
 :global(.decode-letter.state-3)::before { width: 0; }
 
 /* ── Countdown ───────────────────────────────────────────────────────── */
@@ -390,6 +419,7 @@ function copySSH() {
   text-transform: uppercase;
   color: #888;
   text-decoration: none;
+  white-space: nowrap;
   transition: color 0.15s;
 }
 .nav-links a:hover { color: white; }
@@ -447,6 +477,10 @@ function copySSH() {
   flex-shrink: 0;
 }
 .copy-btn:hover, .copy-btn.copied { color: #dc3545; }
+.copy-btn .icon-check, .copy-btn.copied .icon-copy { display: none; }
+.copy-btn.copied .icon-check { display: inline-block; }
+
+.icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; fill: currentColor; }
 
 .connect-hint {
   font-size: 0.72rem;
@@ -741,5 +775,16 @@ function copySSH() {
   .step-num { min-width: 48px; }
   .site-footer { padding: 32px 20px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .site-nav { padding: 18px 16px; gap: 12px; }
+  .nav-links { gap: 8px; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.1em; }
+}
+
+@media (max-width: 360px) {
+  .nav-links a { font-size: 0.64rem; letter-spacing: 0.04em; }
+  .nav-links .bracket::before, .nav-links .bracket::after { content: none; }
 }
 </style>

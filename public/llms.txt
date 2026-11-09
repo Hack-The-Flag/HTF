@@ -1,0 +1,7 @@
+# Hack The Flag
+
+> Hack The Flag (HTF) is an online cryptography CTF organized by COD3RS (https://cod3rs.org/). Players connect over SSH with their own key, solve ciphers and riddles, submit flags and climb a live scoreboard. No prior experience is required.
+
+- [How it works](https://hacktheflag.net/how-it-works/): connecting over SSH, picking a riddle, submitting answers, and how scoring works
+- [Blog](https://blog.hacktheflag.net/): guides on the tools and ciphers players are likely to meet
+- [PGP key](https://hacktheflag.net/pgp.html): public key for contacting the organizers

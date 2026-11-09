@@ -1,17 +1,9 @@
 ---
-import '../styles/global.css';
+import Base from '../layouts/Base.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
-  <link rel="icon" type="image/x-icon" href="/img/HTF-bold-320-sh-lg.png" />
-  <title>Page not found | Hack The Flag</title>
-</head>
-<body>
+<Base title="Page not found | Hack The Flag" robots="noindex">
+
 
 <main class="not-found">
   <p class="not-found-code">404</p>
@@ -19,8 +11,7 @@ import '../styles/global.css';
   <a href="/" class="bracket">Back to Hack The Flag</a>
 </main>
 
-</body>
-</html>
+</Base>
 
 <style>
   .not-found {

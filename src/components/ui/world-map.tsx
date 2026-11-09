@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion } from "motion/react";
-import DottedMap from "dotted-map";
 
 interface MapProps {
   dots?: Array<{
@@ -14,15 +13,6 @@ interface MapProps {
 
 export function WorldMap({ dots = [], lineColor = "#dc3545" }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const map = new DottedMap({ height: 100, grid: "diagonal" });
-
-  const svgMap = map.getSVG({
-    radius: 0.22,
-    color: "#FFFFFF22",
-    shape: "circle",
-    backgroundColor: "transparent",
-  });
-
   const projectPoint = (lat: number, lng: number) => {
     const x = (lng + 180) * (800 / 360);
     const y = (90 - lat) * (400 / 180);
@@ -38,13 +28,18 @@ export function WorldMap({ dots = [], lineColor = "#dc3545" }: MapProps) {
     return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
   };
 
+  // ponytail: /img/world-dots.svg was pre-generated once with dotted-map ({height:100, grid:"diagonal"}, radius 0.22, #FFFFFF22),
+  // then packed into one path of zero-length round-capped strokes (stroke-width .44). Regenerate if the look changes.
   return (
     <div className="w-full aspect-[2/1] rounded-lg relative font-sans" style={{ background: 'transparent' }}>
       <img
-        src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
+        src="/img/world-dots.svg"
         className="h-full w-full pointer-events-none select-none"
         style={{ maskImage: 'linear-gradient(to bottom, transparent, white 10%, white 90%, transparent)' }}
-        alt="world map"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
         height="495"
         width="1056"
         draggable={false}
